@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Today's plan</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.rt{padding:0}
+.rt.wide{grid-column:1/-1;min-height:118px}
+.rt .lk{flex:1;display:flex;flex-direction:column;gap:2px;padding:16px;border-radius:22px;color:inherit}
+.rt .lk b{margin-top:18px}
+.rt.wide .lk b{margin-top:12px}
+.rt .ck{border:0;padding:0;cursor:pointer;width:32px;height:32px;border-radius:16px;top:12px;right:12px}
+.rt .ck.off{background:transparent;border:1.5px solid #B9C8C5;color:transparent}
+.rt .ck svg{width:15px;height:15px}
+.plan{display:flex;flex-direction:column;gap:12px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="Home.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Today's plan<small>Sat, 17 Oct</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Five short tasks<span>for your 30 minutes</span></h1>
+    <div class="count" role="img" aria-label="{{countLabel}}"><b>{{doneN}}</b><b>05</b><span>Tasks done<br>today</span></div>
+    <div class="card plan">
+      <div class="row" style="justify-content:space-between"><span class="tx"><b>Cardiovascular focus</b><span>Based on Semester 3 and your last quiz</span></span><span class="tag">{{pct}}</span></div>
+      <div class="bar"><i style="{{barStyle}}"></i></div>
+    </div>
+    <div class="sec"><h2>Today's routine</h2><span>Tap to tick off</span></div>
+    <div class="grid2">
+      <sc-for list="{{tasks}}" as="t" hint-placeholder-count="5">
+        <div class="{{t.cls}}">
+          <a class="lk" href="{{t.href}}" aria-label="{{t.open}}">
+            <span class="ri" style="{{t.ist}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{t.icon}}"></path></svg></span>
+            <b>{{t.n}}</b><span>{{t.d}}</span><span class="v">{{t.v}}</span>
+          </a>
+          <button class="{{t.ckCls}}" onClick="{{t.toggle}}" aria-pressed="{{t.on}}" aria-label="{{t.label}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button>
+        </div>
+      </sc-for>
+    </div>
+    <div class="note">
+      <span class="nb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg></span>
+      <span style="flex:1"><b>Abhaya suggests</b>Start with cardiac drugs. You missed 3 yesterday.</span>
+    </div>
+    <a class="btn" href="Home.dc.html" style="margin-top:auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Mark day complete</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const done = this.state?.done ?? [0, 1];
+const list = [
+['Revise','Heart anatomy notes','8min','SubjectNotes.dc.html','M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z','mint','background:#fff;color:var(--teal)','Revise heart anatomy notes'],
+['Diagram','Label the heart','5min','DiagramTrainer.dc.html','M4 4h7v7H4zM17 7.5a3.5 3.5 0 1 1-7 0M14 14h6v6h-6zM7.5 14l3.5 6H4z','lilac','background:var(--lilac);color:var(--lilac-i)','Label the heart diagram'],
+['MCQs','Cardiac drugs','10Q','ExamSetup.dc.html','M5 4.5h14v16H5zM9 13l2 2 4-4','sky','background:var(--sky);color:var(--sky-i)','10 MCQs on cardiac drugs'],
+['Case','Chest pain viva','7min','ScenarioDetails.dc.html','M3 12h4l2-5 3 10 2-5h7','peach','background:var(--blush);color:var(--blush-i)','Chest pain viva case'],
+['Breathe','Two-minute break','2min','Breathing.dc.html','M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z','mint','background:var(--mint);color:var(--teal)','Two-minute breathing break']
+];
+const n = done.length;
+const pct = Math.round(n / 5 * 100);
+return {
+doneN: '0' + n,
+countLabel: n + ' of 5 tasks done today',
+pct: pct + '%',
+barStyle: 'width:' + pct + '%',
+tasks: list.map(([nm, d, v, href, icon, col, ist, full], i) => {
+const on = done.includes(i);
+const wide = i === 4 ? ' wide' : '';
+return { n: nm, d, v, href, icon, ist: on ? 'background:#fff;color:var(--ink)' : ist,
+on: on ? 'true' : 'false', cls: (on ? 'rt done ' + col : 'rt') + wide, ckCls: on ? 'ck' : 'ck off',
+label: 'Mark done: ' + full, open: 'Open ' + full,
+toggle: () => this.setState({ done: on ? done.filter(x => x !== i) : [...done, i] }) };
+})
+};
+}
+}
+</script>
+</body>
+</html>

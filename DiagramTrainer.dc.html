@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Diagram trainer</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.ent{min-height:150px}
+.ent .tr{display:flex;align-items:flex-start;justify-content:space-between}
+.ent .go{width:32px;height:32px;border-radius:16px}
+.ent .go svg{width:14px;height:14px}
+.lib{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:104px;padding:14px 8px;border-radius:20px;font-size:13px;font-weight:600;color:var(--ink);text-align:center;transition:transform .2s var(--ease)}
+.lib:active{transform:scale(.97)}
+.lib .ic{width:44px;height:44px;border-radius:22px;background:rgba(255,255,255,.85)}
+.lib .ic svg{width:20px;height:20px}
+.lib.c-blush{background:linear-gradient(160deg,#FCEADF,#F7D9CA)}.lib.c-mint{background:linear-gradient(160deg,#DCF0EA,#C9E7DE)}
+.lib.c-sky{background:linear-gradient(160deg,#E2EEF3,#CFE3EB)}.lib.c-lilac{background:linear-gradient(160deg,#ECE9FA,#DCD6F3)}
+.lib.c-sand{background:linear-gradient(160deg,#FBF1D3,#F5E3AF)}.lib.c-sage{background:linear-gradient(160deg,#E3F1E8,#CFE6D7)}
+</style>
+</helmet>
+<div class="app blush">
+  <div class="top" style="justify-content:space-between">
+    <a class="ib" href="Home.dc.html" aria-label="Back to Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <a class="ib" href="DiagramHistory.dc.html" aria-label="Diagram history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"></path><path d="M4 4.5V8h3.5"></path><path d="M12 8v4l2.8 1.8"></path></svg></a>
+  </div>
+  <div class="page nonav">
+    <div class="head">
+      <h1 class="hl">Learn. Visualize.<span>Understand.</span></h1>
+      <p class="sub">See any diagram explained part by part.</p>
+    </div>
+    <div class="grid2">
+      <a class="tile c-mint ent" href="UploadDiagram.dc.html">
+        <span class="tr">
+          <span class="ic" style="color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.5V4.5M7.5 9 12 4.5 16.5 9M4.5 19.5h15"></path></svg></span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </span>
+        <span><b>Upload</b><span class="mu">Explained part by part</span></span>
+      </a>
+      <a class="tile c-lilac ent" href="GenerateDiagram.dc.html">
+        <span class="tr">
+          <span class="ic" style="color:var(--lilac-i)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg></span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </span>
+        <span><b>Create with AI</b><span class="mu">Describe, get labels</span></span>
+      </a>
+    </div>
+    <a class="li mint" href="DiagramResult.dc.html">
+      <span class="wb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 5.5v13l10-6.5z"></path></svg></span>
+      <span class="tx"><b>Draw the heart</b><span>Guided tutorial · 1 min</span></span>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+    </a>
+    <div class="card stack" style="gap:16px">
+      <div class="row" style="justify-content:space-between"><p class="h3" style="font-size:18px;font-weight:500">Diagram library</p><span class="mu" style="font-size:13px">Practise drawing</span></div>
+      <div class="grid3">
+        <sc-for list="{{lib}}" as="d" hint-placeholder-count="6">
+          <a class="{{d.cls}}" href="DiagramResult.dc.html"><span class="ic" style="{{d.ist}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{d.p}}"></path></svg></span>{{d.n}}</a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const heart = 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z';
+const ink = { 'c-blush': 'var(--blush-i)', 'c-mint': 'var(--teal)', 'c-sky': 'var(--sky-i)', 'c-lilac': 'var(--lilac-i)', 'c-sand': 'var(--sand-i)', 'c-sage': 'var(--sage-i)' };
+return { lib: [
+['Heart', heart, 'c-blush'],
+['Nephron', 'M7 3v6a3 3 0 0 0 6 0V6a2 2 0 0 1 4 0v12M7 13v8', 'c-mint'],
+['Lungs', 'M12 4v8M12 12l-3-2c-3 0-5 4-5 8 0 2 2 2 4 1l4-3M12 12l3-2c3 0 5 4 5 8 0 2-2 2-4 1l-4-3', 'c-sky'],
+['Brain', 'M12 5a3 3 0 0 0-5 1 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 5 2zM12 5a3 3 0 0 1 5 1 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-5 2z', 'c-lilac'],
+['Neuron', 'M12 9a3 3 0 1 0 0 .01M12 12v9M9 8L5 4M15 8l4-4M9 10H4M15 10h5', 'c-sand'],
+['Kidney', 'M15 4c-5 0-9 4-9 9s3 7 6 7 3-3 3-5-2-3-2-5 2-2 2-6z', 'c-sage']
+].map(([n, p, c]) => ({ n, p, cls: 'lib ' + c, ist: 'color:' + ink[c] })) };
+}
+}
+</script>
+</body>
+</html>

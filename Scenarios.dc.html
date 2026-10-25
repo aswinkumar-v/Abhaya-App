@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clinical scenarios</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.case{display:block;min-height:226px;padding:20px}
+.pbox{position:relative;z-index:1;display:inline-flex;flex-direction:column;gap:10px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:13px;font-weight:500}
+.pbox span{display:flex;align-items:center;gap:10px}
+.pbox svg{width:16px;height:16px;opacity:.85}
+.aip{position:absolute;left:20px;bottom:20px;z-index:1;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:22px;background:#D6F0E8;color:var(--deep);font-size:14px;font-weight:600}
+.aip svg{width:15px;height:15px}
+.mon{position:absolute;right:16px;bottom:30px;width:150px}
+.mon .scr{height:92px;border-radius:14px;background:#16393A;border:3px solid #22504D;padding:10px 12px 8px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 28px rgba(5,25,24,.35)}
+.mon .scr svg{width:100%;height:34px}
+.mon .rd{display:flex;justify-content:space-between;font-size:11px;font-weight:700}
+.mon .rd em{font-style:normal;color:#F5D985}
+.mon .st{width:8px;height:12px;margin:0 auto;background:#22504D}
+.mon .ft{width:56px;height:5px;border-radius:3px;margin:0 auto;background:#22504D}
+.cl{padding:4px 20px}
+.cr{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.cr:last-child{border-bottom:0}
+.cr .ic{width:48px;height:48px;border-radius:16px}
+.cr .tx b{font-size:15px}
+.cr .tx > span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cr .mt{display:flex;align-items:center;gap:8px;margin-top:6px}
+.cr .mt span{font-size:12px;color:var(--ink3)}
+.ring{width:52px;height:52px;border-radius:26px;flex:none;display:flex;align-items:center;justify-content:center}
+.ring span{width:42px;height:42px;border-radius:21px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink)}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="Home.dc.html" aria-label="Back to Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl"></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Practise smarter<span>like you're on the ward</span></h1>
+
+    <a class="tealx case" href="ScenarioDetails.dc.html" aria-label="Open case: Mr. Raj, 58, acute myocardial infarction. AI-guided case">
+      <div class="pbox">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.3-3.3 3.9-5 7-5s5.7 1.7 7 5"></path></svg>Mr. Raj, 58</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Emergency dept</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7"></path></svg>Acute MI</span>
+      </div>
+      <div class="mon" aria-hidden="true">
+        <div class="scr">
+          <svg viewBox="0 0 120 34" fill="none" stroke="#7FE0C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M0 22h30l6-6 5 6h8l5-18 6 28 5-14h12l5-4 5 4h33"></path></svg>
+          <div class="rd"><span>HR 112</span><em>SpO2 94%</em></div>
+        </div>
+        <div class="st"></div><div class="ft"></div>
+      </div>
+      <span class="aip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg>AI-guided case</span>
+    </a>
+
+    <a class="li peach" href="ScenarioDetails.dc.html">
+      <span class="wb" style="color:var(--blush-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3.5c4.5 0 6.5 10 11 10H20M4 17h3.5c1.6 0 2.8-1.3 3.8-2.9M16 4l3 3-3 3M16 14l3 3-3 3M13.5 9.6C14.6 8.1 15.8 7 17.5 7H19"></path></svg></span>
+      <span class="tx"><b>Random scenario</b><span>A surprise case from your subjects</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></span>
+    </a>
+
+    <div class="sec"><h2>Clinical cases</h2><span>{{doneTxt}}</span></div>
+    <div class="chips scroll" role="group" aria-label="Filter by category">
+      <sc-for list="{{cats}}" as="c" hint-placeholder-count="4"><button class="{{c.cls}}" onClick="{{c.pick}}" aria-pressed="{{c.on}}">{{c.n}}</button></sc-for>
+    </div>
+    <div class="card cl">
+      <sc-for list="{{cases}}" as="s" hint-placeholder-count="3">
+        <a class="cr" href="ScenarioDetails.dc.html">
+          <span class="{{s.icCls}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg></span>
+          <span class="tx">
+            <b>{{s.t}}</b>
+            <span>{{s.p}}</span>
+            <span class="mt"><span class="{{s.tagCls}}">{{s.lvl}}</span><span>{{s.meta}}</span></span>
+          </span>
+          <span class="ring" style="{{s.ring}}" role="img" aria-label="{{s.ringLbl}}"><span>{{s.pct}}</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const cat = this.state?.cat ?? 'All';
+const look = {
+  Cardiac: ['ic c-blush', 'M3 12h4l2-5 3 10 2-5h7'],
+  Respiratory: ['ic c-sky', 'M12 4v7M12 11c-2 0-3.5 1.5-4.5 3.5S5.5 20 4.5 19.5 4 15 4.5 12.5 6.5 8 8.5 8M12 11c2 0 3.5 1.5 4.5 3.5s2 5.5 3 5 .5-4.5 0-7S17.5 8 15.5 8'],
+  Renal: ['ic c-lilac', 'M9 4.5c-3 0-4.5 3-4.5 7.5S6 19.5 9 19.5c2 0 2.5-2 2.5-4s-1.5-2.5-1.5-3.5 1.5-1.5 1.5-3.5S11 4.5 9 4.5zM15 4.5c3 0 4.5 3 4.5 7.5S18 19.5 15 19.5']
+};
+const tagFor = { Beginner: 'tag', Intermediate: 'tag y', Advanced: 'tag p' };
+const all = [
+['Cardiac','Acute myocardial infarction','Mr. Raj, 58. Crushing chest pain, ST elevation.','Intermediate',4,8,'',50],
+['Respiratory','Acute asthma exacerbation','Ms. Divya, 24. Wheeze, SpO2 91%, no inhaler.','Beginner',4,7,'Completed',100],
+['Renal','CKD with hyperkalaemia','Mr. Thomas, 66. Confused, K+ 6.8, peaked T-waves.','Advanced',4,10,'',0]
+];
+const shown = all.filter(a => cat === 'All' || a[0] === cat);
+const doneN = shown.filter(a => a[6]).length;
+return {
+doneTxt: doneN + ' of ' + shown.length + ' completed',
+cats: ['All','Cardiac','Respiratory','Renal'].map(n => ({ n, on: n === cat ? 'true' : 'false', cls: n === cat ? 'chip on' : 'chip', pick: () => this.setState({ cat: n }) })),
+cases: shown.map(([c, t, p, lvl, q, m, done, prog]) => {
+const col = done ? 'var(--ok)' : 'var(--teal)';
+return {
+t, p, lvl,
+icCls: look[c][0], icon: look[c][1], tagCls: tagFor[lvl],
+meta: done ? done : q + ' decisions · ' + m + ' min',
+pct: done ? 'Done' : prog ? prog + '%' : 'New',
+ringLbl: done ? 'Completed' : prog ? prog + '% complete' : 'Not started',
+ring: 'background:conic-gradient(' + col + ' ' + (prog * 3.6) + 'deg,var(--track) 0)'
+};
+})
+};
+}
+}
+</script>
+</body>
+</html>

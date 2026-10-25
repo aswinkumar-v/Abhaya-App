@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ask Abhaya</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.live{display:inline-flex;align-items:center;gap:6px}
+.live::before{content:'';width:7px;height:7px;border-radius:4px;background:#3FB39E}
+.orbz{position:relative;width:200px;height:200px;align-self:center;display:flex;align-items:center;justify-content:center;margin-top:-6px}
+.orbz .ring{position:absolute;inset:0;animation:spin 60s linear infinite}
+.orbz .ring i{position:absolute;border-radius:50%}
+.cc{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:-6px}
+.cc .hl span{display:inline}
+.cc .sub{max-width:280px;margin:0}
+.soon{border:1.5px dashed #C3D3CF;background:transparent;box-shadow:none}
+.ini{font-size:13px;font-weight:600}
+.steps{list-style:none;margin:-2px 0 0;padding:0;display:flex;justify-content:center;gap:14px;font-size:12px;color:var(--ink2)}
+.steps li{display:flex;align-items:center;gap:6px}
+.steps i{width:18px;height:18px;border-radius:9px;background:var(--mint);color:var(--teal);font-style:normal;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="ChooseScenario.dc.html" aria-label="New chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></a>
+    <span class="ttl">Abhaya Tutor<small class="live">Online · 24/7</small></span>
+    <a class="ib" href="ChatCentre.dc.html" aria-label="Search conversations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></a>
+  </div>
+  <div class="page">
+    <div class="orbz" aria-hidden="true">
+      <div class="ring">
+        <sc-for list="{{dots}}" as="d" hint-placeholder-count="22"><i style="{{d.st}}"></i></sc-for>
+      </div>
+      <div class="orbx glow"></div>
+    </div>
+    <div class="cc">
+      <h1 class="hl">Hi Ananya, <span>let's learn</span></h1>
+      <p class="sub">I explain things your way: with stories, real-life examples or step by step.</p>
+    </div>
+    <a class="btn" href="ChooseScenario.dc.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Start a new chat</a>
+    <ol class="steps" aria-label="How a new chat works"><li><i>1</i>Pick what to do</li><li><i>2</i>Pick a teacher</li><li><i>3</i>Start learning</li></ol>
+    <div class="sec"><h2>Quick starts</h2></div>
+    <div class="grid2">
+      <a class="tile c-mint" href="ChooseMode.dc.html" onClick="{{q0}}"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.3 5.2 8 4.5 4 4.5v13c4 0 6.3.7 8 2 1.7-1.3 4-2 8-2v-13c-4 0-6.3.7-8 2z"></path><path d="M12 6.5v13"></path></svg></span><span><b>Explain a topic</b><span class="mu">Any concept, simply</span></span></a>
+      <a class="tile c-blush" href="ChooseMode.dc.html" onClick="{{q1}}"><span class="ic" style="color:var(--blush-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7"></path></svg></span><span><b>Practise a case</b><span class="mu">Think like a nurse</span></span></a>
+      <a class="tile c-sky" href="ChooseMode.dc.html" onClick="{{q2}}"><span class="ic" style="color:var(--sky-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.7 9.5a2.4 2.4 0 0 1 4.6.8c0 1.6-2.3 2-2.3 3.5M12 16.5v.01"></path><circle cx="12" cy="12" r="8.5"></circle></svg></span><span><b>Quiz me on drugs</b><span class="mu">Quick recall</span></span></a>
+      <a class="tile c-sand" href="ChooseMode.dc.html" onClick="{{q3}}"><span class="ic" style="color:var(--sand-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 16.4 7.2 18.9l.9-5.4L4.2 9.7l5.4-.8z"></path></svg></span><span><b>Viva prep</b><span class="mu">Practise answers</span></span></a>
+    </div>
+    <div class="sec"><h2>Saved conversations</h2><span>3 chats</span></div>
+    <div class="group">
+      <a class="li" href="Chat.dc.html" onClick="{{s0}}"><span class="ic rd c-mint ini">MN</span><span class="tx"><b>Chest pain viva case</b><span>Dr. Meera Nair · Story mode</span></span><span class="mu">2h</span></a>
+      <a class="li" href="Chat.dc.html" onClick="{{s1}}"><span class="ic rd c-lilac ini">AM</span><span class="tx"><b>Nephron, step by step</b><span>Dr. Arjun Menon · Step by step</span></span><span class="mu">Yesterday</span></a>
+      <a class="li" href="Chat.dc.html" onClick="{{s2}}"><span class="ic rd c-blush ini">PI</span><span class="tx"><b>Insulin types</b><span>Dr. Priya Iyer · Quick notes</span></span><span class="mu">Mon</span></a>
+    </div>
+    <div class="li soon" aria-disabled="true">
+      <span class="ic rd c-sand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle><path d="M3 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5M15 15c2.6 0 4.6 1.2 5.5 4"></path></svg></span>
+      <span class="tx"><b>Discussion forum</b><span>Learn with classmates</span></span>
+      <span class="tag y">Soon</span>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Main">
+    <a href="Home.dc.html" aria-label="Home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 4l8.5 6.5"></path><path d="M5.5 9v10a1 1 0 0 0 1 1H10v-5.5h4V20h3.5a1 1 0 0 0 1-1V9"></path></svg></i><span>Home</span></a>
+    <a href="ChatCentre.dc.html" class="on" aria-current="page" aria-label="Chat"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-11 6.6L4.5 19.5l1.3-4.2A7.5 7.5 0 1 1 20 11.5z"></path><path d="M9 11.5h.01M12.5 11.5h.01M16 11.5h.01"></path></svg></i><span>Chat</span></a>
+    <a href="Wellbeing.dc.html" class="ai" aria-label="Wellbeing"><i><span class="fuss xs calm still"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz2B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz2F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz2E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz2T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz2C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz2F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz2B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz2B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz2T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz2F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz2F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz2E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz2C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz2C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span></i><span>Wellbeing</span></a>
+    <a href="ExamSetup.dc.html" aria-label="Exams"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 4.5V3.5h6v1M9 13l2 2 4-4"></path></svg></i><span>Exams</span></a>
+    <a href="Profile.dc.html" aria-label="Profile"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.3-3.3 3.9-5 7-5s5.7 1.7 7 5"></path></svg></i><span>Profile</span></a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const mode = this.state?.mode ?? 'Real-life examples';
+const cols = ['#F2B7A1','#F5D985','#B9E0D7','#C9C3F0','#9FD4C6','#F6C9A8','#D6E6E2','#A9C9EE'];
+const N = 22;
+const dots = Array.from({ length: N }, (_, i) => {
+  const a = (i / N) * Math.PI * 2;
+  const r = 86 + (i % 3) * 4;
+  const s = [10, 6, 8, 12, 7][i % 5];
+  const x = 100 + Math.cos(a) * r - s / 2;
+  const y = 100 + Math.sin(a) * r - s / 2;
+  const op = [1, .7, .9, .6][i % 4];
+  return { st: 'left:' + x.toFixed(1) + 'px;top:' + y.toFixed(1) + 'px;width:' + s + 'px;height:' + s + 'px;background:' + cols[i % cols.length] + ';opacity:' + op };
+});
+const LS = { get: (k, d) => { try { const v = localStorage.getItem('abhaya.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set: (k, v) => { try { localStorage.setItem('abhaya.' + k, JSON.stringify(v)); } catch (e) {} } };
+const pick = (scenario) => () => { LS.set('scenario', scenario); LS.set('from', ''); };
+const resume = (scenario, mode, teacher, idx) => () => { LS.set('scenario', scenario); LS.set('mode', mode); LS.set('teacher', teacher); LS.set('modeIdx', idx); };
+return {
+dots,
+q0: pick('Learn a topic'), q1: pick('Discuss a patient case'), q2: pick('Clear a doubt'), q3: pick('Viva and exam prep'),
+s0: resume('Viva and exam prep', 'Story mode', 'Dr. Meera Nair', 0), s1: resume('Learn a topic', 'Step by step', 'Dr. Arjun Menon', 1), s2: resume('Clear a doubt', 'Quick notes', 'Dr. Priya Iyer', 2)
+};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Diagram history</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.dh{display:flex;flex-direction:column;gap:12px;padding:8px 8px 14px;background:#fff;border-radius:22px;box-shadow:var(--shadow);transition:transform .2s var(--ease)}
+.dh:active{transform:scale(.98)}
+.dh .th{position:relative;height:108px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.dh .th svg{width:40px;height:40px}
+.dh .th.c-blush{background:linear-gradient(160deg,#FCEADF,#F7D9CA)}.dh .th.c-mint{background:linear-gradient(160deg,#DCF0EA,#C9E7DE)}
+.dh .th.c-sky{background:linear-gradient(160deg,#E2EEF3,#CFE3EB)}.dh .th.c-lilac{background:linear-gradient(160deg,#ECE9FA,#DCD6F3)}
+.dh .tag{position:absolute;left:8px;top:8px;height:24px;background:rgba(255,255,255,.9);color:var(--ink2)}
+.dh .tx{padding:0 6px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="DiagramTrainer.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">History<small>Diagram trainer</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="head"><h1 class="title">Diagram history</h1><p class="sub">Everything you've uploaded or created.</p></div>
+    <div class="seg" role="group" aria-label="Filter diagrams"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" onClick="{{t.pick}}" aria-pressed="{{t.on}}">{{t.n}}</button></sc-for></div>
+    <div class="row" style="justify-content:space-between;margin-top:4px"><p class="h3" style="font-size:18px;font-weight:500">{{label}}</p><span class="mu" style="font-size:13px">{{countTxt}}</span></div>
+    <div class="grid2">
+      <sc-for list="{{items}}" as="d" hint-placeholder-count="4">
+        <a class="dh" href="DiagramResult.dc.html">
+          <span class="{{d.cls}}" style="{{d.ist}}"><span class="tag">{{d.k}}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{d.p}}"></path></svg></span>
+          <span class="tx"><b>{{d.n}}</b><span>{{d.s}}</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const tab = this.state?.tab ?? 'All';
+const heart = 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z';
+const ink = { 'c-blush': 'var(--blush-i)', 'c-mint': 'var(--teal)', 'c-sky': 'var(--sky-i)', 'c-lilac': 'var(--lilac-i)' };
+const all = [
+['Human heart','Today','Uploaded',heart,'c-blush'],
+['Nephron','Yesterday','Generated','M7 3v6a3 3 0 0 0 6 0V6a2 2 0 0 1 4 0v12M7 13v8','c-mint'],
+['Lungs','Wed','Uploaded','M12 4v8M12 12l-3-2c-3 0-5 4-5 8 0 2 2 2 4 1l4-3M12 12l3-2c3 0 5 4 5 8 0 2-2 2-4 1l-4-3','c-sky'],
+['Synapse','Mon','Generated','M12 9a3 3 0 1 0 0 .01M12 12v9M9 8L5 4M15 8l4-4','c-lilac']
+];
+const items = all.filter(a => tab === 'All' || a[2] === tab).map(([n, s, k, p, c]) => ({ n, s, k, p, cls: 'th ' + c, ist: 'color:' + ink[c] }));
+return {
+tabs: ['All','Uploaded','Generated'].map(n => ({ n, on: n === tab ? 'true' : 'false', cls: n === tab ? 'on' : '', pick: () => this.setState({ tab: n }) })),
+items,
+label: tab === 'All' ? 'All diagrams' : tab,
+countTxt: items.length + (items.length === 1 ? ' diagram' : ' diagrams')
+};
+}
+}
+</script>
+</body>
+</html>

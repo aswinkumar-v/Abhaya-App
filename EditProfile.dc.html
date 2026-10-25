@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Edit profile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.photo{align-self:center;display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:0;padding:4px 0 6px;font-size:13px;font-weight:600;color:var(--teal)}
+.photo .av{position:relative;width:88px;height:88px;border-radius:44px;font-size:30px}
+.photo .cam{position:absolute;right:-2px;bottom:-2px;width:32px;height:32px;border-radius:16px;background:var(--deep);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #fff}
+.photo .cam svg{width:15px;height:15px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="Profile.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Edit profile<small>B.Sc Nursing · Sem 3</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <button class="photo" aria-label="Change photo">
+      <span class="av">A<span class="cam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3l1.8-2.5h6.4L17 8.5h3V19H4z"></path><circle cx="12" cy="13.5" r="3.2"></circle></svg></span></span>
+      Change photo
+    </button>
+    <div class="card stack" style="gap:16px">
+      <div class="field"><label for="n">Full name</label><input id="n" type="text" value="Ananya"></div>
+      <div class="field"><label for="e">Email</label><input id="e" type="email" value="ananya@college.edu"></div>
+      <div class="field"><label for="s">Student ID</label><input id="s" type="text" value="BSN2024-117"></div>
+      <div class="grid2">
+        <div class="field"><label for="sm">Semester</label><select id="sm"><option>Semester 3</option><option>Semester 4</option></select></div>
+        <div class="field"><label for="t">Daily study</label><select id="t"><option>30 minutes</option><option>45 minutes</option><option>60 minutes</option></select></div>
+      </div>
+    </div>
+    <button class="{{cls}}" onClick="{{save}}" style="margin-top:auto" aria-live="polite">{{label}}</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const saved = this.state?.saved ?? false;
+return { save: () => this.setState({ saved: true }), label: saved ? 'Profile updated' : 'Save changes', cls: saved ? 'btn soft' : 'btn' };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Diagram explanation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.stage{position:relative;height:236px;border-radius:18px;overflow:hidden;background:radial-gradient(70% 70% at 80% 10%,#F9E7EF 0%,rgba(249,231,239,0) 70%),linear-gradient(180deg,#FBE9E0,#FBF4F1)}
+.pin{position:absolute;width:32px;height:32px;border-radius:16px;border:2px solid #fff;background:#fff;color:var(--ink);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(18,48,46,.18);transition:all .2s var(--ease)}
+.pin.on{background:var(--deep);color:#fff;transform:scale(1.08)}
+.cur{display:flex;flex-direction:column;gap:6px}
+.cur b{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.cur p{margin:0;font-size:14px;line-height:1.55;color:rgba(255,255,255,.85)}
+.parts .opt{min-height:56px;padding:9px 16px 9px 9px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="DiagramTrainer.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Explanation<small>Tap a pin or part</small></span>
+    <button class="ib" aria-label="Save to notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v16l-5-3.5L7 20z"></path></svg></button>
+  </div>
+  <div class="page nonav">
+    <div class="head"><p class="eyebrow">Your diagram</p><h1 class="title">Human heart</h1></div>
+    <div class="card" style="padding:8px">
+      <div class="stage">
+        <svg width="200" height="184" viewBox="0 0 24 24" fill="none" stroke="var(--blush-i)" stroke-width=".6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Heart diagram" style="position:absolute;left:67px;top:26px"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="#EDC9BD"></path><path d="M12 7.4V18M8 11h8" stroke-dasharray="1 1"></path><path d="M10 6V3M14 6V2.5"></path></svg>
+        <sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
+          <button class="{{p.pin}}" onClick="{{p.pick}}" aria-label="{{p.n}}" aria-pressed="{{p.on}}" style="{{p.st}}">{{p.k}}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div class="tealx cur" aria-live="polite">
+      <span class="mu">{{curOf}}</span>
+      <b>{{cur.n}}</b>
+      <p>{{cur.d}}</p>
+    </div>
+    <div class="stack parts" style="gap:10px">
+      <sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
+        <button class="{{p.cls}}" onClick="{{p.pick}}" aria-pressed="{{p.on}}"><span class="lt">{{p.k}}</span><span style="flex:1">{{p.n}}</span></button>
+      </sc-for>
+    </div>
+    <div class="row" style="margin-top:6px;gap:10px">
+      <a class="btn" href="ChooseMode.dc.html" style="flex:1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg>Ask a follow-up</a>
+      <a class="btn ghost" href="ExamSetup.dc.html" style="width:auto;padding:0 22px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 13l2 2 4-4"></path></svg>Quiz me</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const sel = this.state?.sel ?? 0;
+const list = [
+['Right atrium','Receives oxygen-poor blood from the body via the venae cavae.',93,68],
+['Left atrium','Receives oxygen-rich blood from the lungs via the pulmonary veins.',204,68],
+['Right ventricle','Pumps blood to the lungs through the pulmonary artery.',108,129],
+['Left ventricle','Thickest wall. Pumps oxygen-rich blood to the body via the aorta.',188,138]
+];
+const parts = list.map(([n, d, x, y], i) => ({ k: i + 1, n, d, on: i === sel ? 'true' : 'false', st: 'left:' + x + 'px;top:' + y + 'px', pin: i === sel ? 'pin on' : 'pin', cls: i === sel ? 'opt on' : 'opt', pick: () => this.setState({ sel: i }) }));
+return { parts, cur: parts[sel], curOf: 'Part ' + (sel + 1) + ' of ' + list.length };
+}
+}
+</script>
+</body>
+</html>

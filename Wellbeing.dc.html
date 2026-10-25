@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wellbeing</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.mfs{display:flex;justify-content:space-between;gap:4px}
+.mf{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0;border:0;background:transparent;font-size:13px;font-weight:500;color:var(--ink2);transition:color .2s}
+.mf .fw{height:70px;display:flex;align-items:center;justify-content:center}
+.mf .fc{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.mf .fc .fuss{width:52px;height:52px}
+.mf.on{color:var(--ink);font-weight:700}
+.mf.on .fc{width:62px;height:62px;transform:translateY(-4px);box-shadow:0 0 0 4px #fff,0 12px 24px rgba(18,48,46,.16)}
+.mf.on .fc .fuss{width:64px;height:64px}
+.mf .fc,.mf.on .fc{background:none!important;box-shadow:none!important;width:auto;height:auto;transform:none}
+.fz-hero{position:absolute;right:10px;top:8px}
+
+.resp{margin:0;padding:14px 16px;border-radius:18px;background:#F4F2EC;font-size:14px;line-height:1.5;color:var(--ink)}
+.etag{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:16px;background:#F4F2EC;font-size:13px;font-weight:600;color:var(--ink)}
+.etxt{width:100%;min-height:72px;border:0;outline:none;resize:none;background:transparent;padding:0;font-size:17px;line-height:1.5;color:var(--ink)}
+.etxt::placeholder{color:var(--ink2)}
+.sk{display:flex;justify-content:space-between}
+.sk span{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;color:var(--ink2)}
+.sk i{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:#4DB39E}
+.sk i svg{width:15px;height:15px}
+.sk span.t{font-weight:700;color:var(--ink)}
+.sk span.t i{background:var(--deep)}
+.sk span.f i{background:transparent;border:1.5px dashed #C3CFCC}
+.help{background:linear-gradient(90deg,#E1EFEC,#EAF2EF);box-shadow:none}
+</style>
+</helmet>
+<div class="app">
+  <div class="top" style="justify-content:flex-end">
+    <span class="chipb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2.5"></rect><path d="M8 11V7.5a4 4 0 0 1 8 0V11"></path></svg>Private to you</span>
+  </div>
+  <div class="page">
+    <h1 class="hl">Hello, Ananya<span>how's your heart today?</span></h1>
+    <div class="count"><b>04</b><b>07</b><span>Check-ins<br>this week</span></div>
+    <div class="card stack" style="gap:16px">
+      <div class="mfs" role="group" aria-label="How are you feeling?">
+        <sc-for list="{{moods}}" as="m" hint-placeholder-count="5">
+          <button class="{{m.cls}}" onClick="{{m.pick}}" aria-pressed="{{m.on}}"><span class="fw"><span class="fc" style="{{m.bg}}"><span class="{{m.fz}}"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz12B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz12F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz12E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz12T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz12C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz12F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz12B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz12B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz12T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz12F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz12F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz12E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz12C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz12C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span></span></span>{{m.n}}</button>
+        </sc-for>
+      </div>
+      <div class="row" style="gap:12px;align-items:center"><span class="{{bigFz}}" role="img" aria-label="Fuss"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz13B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz13F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz13E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz13T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz13C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz13F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz13B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz13B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz13T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz13F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz13F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz13E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz13C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz13C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span><p class="fz-bub" aria-live="polite"><b>Fuss</b>{{moodMsg}}</p></div>
+    </div>
+    <a class="hero" href="ListenerChat.dc.html">
+      <span class="fuss md calm listen fz-hero"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz14B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz14F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz14E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz14T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz14C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz14F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz14B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz14B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz14T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz14F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz14F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz14E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz14C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz14C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span>
+      <div class="in">
+        <div><p class="h3" style="font-size:17px;font-weight:500;letter-spacing:-.02em">Talk to Fuss</p><p class="mu" style="color:var(--ink2);margin-top:2px">Your AI listener. Private and kind.</p></div>
+        <div class="split"><div><span>Available</span><b>Any time</b></div><div><span>Last chat</span><b>10 min · Mon</b></div></div>
+      </div>
+      <div class="foot">Talk it out<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
+    </a>
+    <div class="sec"><h2>Take a moment</h2><span>Small resets</span></div>
+    <div class="grid2">
+      <a class="rt mint" href="Breathing.dc.html">
+        <span class="ri" style="background:#fff;color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5h10.5a2.5 2.5 0 1 0-2.5-2.5M3 12h14.5a2.5 2.5 0 1 1-2.5 2.5M3 15.5h6.5"></path></svg></span>
+        <b>Breathe</b><span>4-7-8 technique</span><span class="v">1min</span>
+      </a>
+      <a class="rt sky" href="Journal.dc.html">
+        <span class="ri" style="background:var(--lilac);color:var(--lilac-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5h4l10-10-4-4-10 10z"></path><path d="M13 7l4 4"></path></svg></span>
+        <b>Journal</b><span>Entries this week</span><span class="v">3</span>
+      </a>
+      <a class="rt sand" href="Motivation.dc.html">
+        <span class="ri" style="background:var(--sand);color:var(--sand-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"></path></svg></span>
+        <b>Daily motivation</b><span>Thoughts for today</span><span class="v">1/4</span>
+      </a>
+      <a class="rt lilac" href="CalmAudio.dc.html">
+        <span class="ri" style="background:#fff;color:var(--lilac-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17.5V5.5l10-2v12"></path><circle cx="6.5" cy="17.5" r="2.5"></circle><circle cx="16.5" cy="15.5" r="2.5"></circle></svg></span>
+        <b>Calm audio</b><span>Rain · piano</span><span class="v">10min</span>
+      </a>
+    </div>
+    <div class="card stack" style="gap:14px">
+      <div class="row" style="justify-content:space-between"><span class="etag">Today's entry</span><span class="mu" style="font-size:13px">17 Oct · Afternoon</span></div>
+      <label for="entry" class="sr">Today's journal entry</label>
+      <textarea id="entry" class="etxt" value="{{entry}}" onChange="{{type}}" placeholder="“In stillness, clarity emerges.” What's on your mind?"></textarea>
+      <div class="row" style="justify-content:space-between">
+        <sc-if value="{{saved}}" hint-placeholder-val="{{false}}"><a class="link" href="Journal.dc.html">Saved · view journal</a></sc-if>
+        <sc-if value="{{unsaved}}" hint-placeholder-val="{{true}}"><span class="mu">Only you can read this</span></sc-if>
+        <button class="btn ink sm" onClick="{{save}}">{{saveTxt}}</button>
+      </div>
+    </div>
+    <div class="card stack" style="gap:16px">
+      <div class="row" style="justify-content:space-between"><p class="h3" style="font-size:18px;font-weight:500">Check-in streak</p><b style="font-size:13px;color:var(--teal)">4 days</b></div>
+      <div class="sk" role="img" aria-label="Checked in Monday to today, 4 day streak">
+        <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+          <span class="{{d.cls}}"><i><sc-if value="{{d.done}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if></i>{{d.n}}</span>
+        </sc-for>
+      </div>
+    </div>
+    <div class="card help stack" style="gap:16px">
+      <div class="row" style="gap:14px;align-items:flex-start">
+        <span class="ic rd" style="background:#fff;color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"></path></svg></span>
+        <span class="tx"><b>Need help from a real person?</b><span style="color:var(--ink2);font-size:13px">A teacher or campus counsellor will reach out to you privately.</span></span>
+      </div>
+      <button class="{{rcls}}" onClick="{{req}}" aria-pressed="{{sentA}}">{{rtxt}}</button>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Main">
+    <a href="Home.dc.html" aria-label="Home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 4l8.5 6.5"></path><path d="M5.5 9v10a1 1 0 0 0 1 1H10v-5.5h4V20h3.5a1 1 0 0 0 1-1V9"></path></svg></i><span>Home</span></a>
+    <a href="ChatCentre.dc.html" aria-label="Chat"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-11 6.6L4.5 19.5l1.3-4.2A7.5 7.5 0 1 1 20 11.5z"></path><path d="M9 11.5h.01M12.5 11.5h.01M16 11.5h.01"></path></svg></i><span>Chat</span></a>
+    <a href="Wellbeing.dc.html" class="ai on" aria-current="page" aria-label="Wellbeing"><i><span class="fuss xs calm still"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz3B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz3F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz3E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz3T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz3C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz3F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz3B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz3B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz3T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz3F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz3F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz3E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz3C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz3C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span></i><span>Wellbeing</span></a>
+    <a href="ExamSetup.dc.html" aria-label="Exams"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 4.5V3.5h6v1M9 13l2 2 4-4"></path></svg></i><span>Exams</span></a>
+    <a href="Profile.dc.html" aria-label="Profile"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.3-3.3 3.9-5 7-5s5.7 1.7 7 5"></path></svg></i><span>Profile</span></a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const mood = this.state?.mood ?? 'Happy', sent = this.state?.sent ?? false;
+const entry = this.state?.entry ?? '', saved = this.state?.saved ?? false;
+const EYES = 'M11.5 13.5h.01M20.5 13.5h.01';
+const list = [
+['Low','#DEDAF4','M12 21.5q4-3 8 0','Be gentle with yourself today. One small task is enough.'],
+['Tired','#E8E4F7','M12.5 20.5h7','Rest counts as progress. Try a 1 minute breather first.'],
+['Happy','#BFE8DD','M11.5 19q4.5 4 9 0','Lovely to hear. Ride the energy, your plan has a quick Immunology quiz today.'],
+['Okay','#F8E7A9','M12.5 20.5h7','Steady is fine. Start with the shortest task on your list.'],
+['Stressed','#F6CDBB','M12 21.5q4-3 8 0','That sounds heavy. Breathe with me, or talk it out. I\'m listening.']
+];
+const FZ = { Low: 'sad', Tired: 'tired', Happy: 'happy', Okay: 'okay', Stressed: 'stressed' };
+const days = [['Mon','d'],['Tue','d'],['Wed','d'],['Today','t'],['Fri','f'],['Sat','f'],['Sun','f']];
+return {
+moods: list.map(([n, c, mouth]) => ({ n, eyes: EYES, mouth, fz: 'fuss sm ' + FZ[n] + (n === mood ? '' : ' still'), bg: 'background:' + c, on: n === mood ? 'true' : 'false', cls: n === mood ? 'mf on' : 'mf', pick: () => this.setState({ mood: n }) })),
+moodMsg: list.find(m => m[0] === mood)[3],
+bigFz: 'fuss md ' + FZ[mood],
+entry, saved, unsaved: !saved,
+saveTxt: saved ? 'Saved' : 'Save entry',
+type: (e) => this.setState({ entry: e.target.value, saved: false }),
+save: () => { if (entry.trim()) this.setState({ saved: true }); },
+days: days.map(([n, k]) => ({ n, done: k !== 'f', cls: k === 'd' ? '' : k })),
+req: () => this.setState({ sent: !sent }),
+sentA: sent ? 'true' : 'false',
+rcls: sent ? 'btn ghost' : 'btn ink',
+rtxt: sent ? 'Request sent · we will reach out' : 'Request support'
+};
+}
+}
+</script>
+</body>
+</html>

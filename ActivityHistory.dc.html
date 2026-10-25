@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Activity history</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="NotesBuddy.dc.html" aria-label="Back to Notes Buddy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Activity history</span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Pick up<span>where you left off</span></h1>
+    <div class="sec"><h2>Today</h2></div>
+    <div class="group">
+      <sc-for list="{{today}}" as="a" hint-placeholder-count="2">
+        <a class="li" href="{{a.href}}">
+          <span class="{{a.cls}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{a.d}}"></path></svg></span>
+          <span class="tx"><b>{{a.t}}</b><span>{{a.s}}</span></span>
+          <span class="go ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </a>
+      </sc-for>
+    </div>
+    <div class="sec"><h2>This week</h2></div>
+    <div class="group">
+      <sc-for list="{{week}}" as="a" hint-placeholder-count="3">
+        <a class="li" href="{{a.href}}">
+          <span class="{{a.cls}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{a.d}}"></path></svg></span>
+          <span class="tx"><b>{{a.t}}</b><span>{{a.s}}</span></span>
+          <span class="go ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const N = ['M7 3.5h7l4 4V20.5H6.5V3.5zM14 3.5V8h4M9 12.5h6M9 16h4','ic c-mint','SubjectNotes.dc.html'];
+const F = ['M3.5 7.5h13v12h-13zM7.5 4.5h11a2 2 0 0 1 2 2v9.5','ic c-lilac','Flashcards.dc.html'];
+const P = ['M12 4.5c.45 3.6 2.9 6.05 6.5 6.5-3.6.45-6.05 2.9-6.5 6.5-.45-3.6-2.9-6.05-6.5-6.5 3.6-.45 6.05-2.9 6.5-6.5z','ic c-sky','QuestionPredictor.dc.html'];
+const Q = ['M5.5 3.5h13v17h-13zM9 8h6M9 12h6M9 16h3.5','ic c-sand','PastPapers.dc.html'];
+const mk = ([d, cls, href], t, s) => ({ d, cls, href, t, s });
+return {
+today: [mk(N,'Heart: chambers and valves','Subject notes · 9:10 am'), mk(F,'Reviewed 12 flash cards','Heart anatomy · 9:24 am')],
+week: [mk(P,'Predicted questions','Anatomy & Physiology · Thu'), mk(Q,'Solved University exam 2024','Q1 to Q4 · Wed'), mk(N,'Uploaded Renal system notes.pdf','Explained by Abhaya · Mon')]
+};
+}
+}
+</script>
+</body>
+</html>

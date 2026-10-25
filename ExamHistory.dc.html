@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exam history</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.sc{width:48px;height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex:none}
+.sc.hi{background:var(--ok-bg);color:var(--ok)}.sc.mid{background:var(--sand);color:var(--sand-i)}.sc.lo{background:var(--bad-bg);color:var(--bad)}
+.bars{display:flex;align-items:flex-end;gap:10px;height:150px}
+.bc{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px}
+.bc i{display:block;width:100%;border-radius:12px;background:#D3E5E1}
+.bc i.now{background:var(--teal)}
+.bt{height:24px;padding:0 8px;border-radius:8px;background:var(--deep);color:#fff;font-size:11px;font-weight:700;display:inline-flex;align-items:center}
+.bl{font-size:11px;color:var(--ink3);white-space:nowrap}.bl.now{font-weight:700;color:var(--ink)}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="ExamSetup.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Exam history<small>Last 6 mocks</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="card stack" style="gap:18px">
+      <div class="row" style="justify-content:space-between;align-items:flex-end">
+        <div class="stack" style="gap:6px"><p class="eyebrow">Average score</p><span class="big" style="font-size:40px">72<small>%</small></span></div>
+        <span class="tag">Up from 50% on 5 Oct</span>
+      </div>
+      <div class="bars" role="img" aria-label="Scores: 50, 60, 55, 70, 80 and 70 percent today">
+        <sc-for list="{{trend}}" as="t" hint-placeholder-count="6">
+          <div class="bc"><sc-if value="{{t.now}}" hint-placeholder-val="{{false}}"><span class="bt">{{t.v}}</span></sc-if><i class="{{t.cls}}" style="{{t.st}}"></i><span class="{{t.lc}}">{{t.d}}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div class="sec"><h2>Recent exams</h2><span>4 this month</span></div>
+    <div class="group">
+      <sc-for list="{{exams}}" as="e" hint-placeholder-count="4">
+        <a class="li" href="ExamResult.dc.html"><span class="{{e.cls}}">{{e.s}}</span><span class="tx"><b>{{e.t}}</b><span>{{e.m}}</span></span><span class="go ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+      </sc-for>
+    </div>
+    <a class="btn" href="ExamSetup.dc.html">New mock exam</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const pct = [50, 60, 55, 70, 80, 70];
+const col = (p) => p >= 70 ? 'sc hi' : p >= 55 ? 'sc mid' : 'sc lo';
+return {
+trend: pct.map((p, i) => {
+const now = i === pct.length - 1;
+return { now, v: p + '%', st: 'height:' + Math.round(p * 1.15) + 'px', d: ['5 Oct','8','10','12','14','Today'][i], cls: now ? 'now' : '', lc: now ? 'bl now' : 'bl' };
+}),
+exams: [
+['7/10','Medical-Surgical · MCQ','Today · 8 min',70],
+['8/10','Anatomy & Physiology · MCQ','14 Oct · 9 min',80],
+['21/30','Pharmacology · Short answer','12 Oct · 24 min',70],
+['11/20','Critical Care · Case-based','10 Oct · 18 min',55]
+].map(([s, t, m, p]) => ({ s, t, m, cls: col(p) }))
+};
+}
+}
+</script>
+</body>
+</html>

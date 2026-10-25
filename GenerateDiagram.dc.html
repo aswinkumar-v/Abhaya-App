@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Generate diagram</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.orbs{width:84px;height:84px;margin-bottom:6px}
+.chips .chip{height:40px;padding:0 16px;font-size:13px;background:var(--track);box-shadow:none}
+</style>
+</helmet>
+<div class="app lilac">
+  <div class="top">
+    <a class="ib" href="DiagramTrainer.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Create with AI<small>Diagram trainer</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="stack" style="align-items:center;text-align:center;gap:10px;padding-top:4px">
+      <div class="orbx orbs glow" aria-hidden="true"></div>
+      <h1 class="hl">Describe it.<span>Abhaya draws it.</span></h1>
+      <p class="sub" style="margin:0">A labelled diagram in seconds.</p>
+    </div>
+    <div class="card stack" style="gap:16px">
+      <div class="field"><label for="d">Your diagram</label><textarea id="d" style="min-height:96px">Draw a labelled diagram of a nephron</textarea></div>
+      <div class="stack" style="gap:8px">
+        <p class="eyebrow">Try one</p>
+        <div class="chips">
+          <button class="chip">Blood flow through the heart</button>
+          <button class="chip">Respiratory system</button>
+          <button class="chip">Synapse</button>
+        </div>
+      </div>
+      <div class="field"><label id="stl">Style</label>
+        <div class="seg soft" role="group" aria-labelledby="stl"><sc-for list="{{styles}}" as="s" hint-placeholder-count="2"><button class="{{s.cls}}" onClick="{{s.pick}}" aria-pressed="{{s.on}}">{{s.n}}</button></sc-for></div>
+      </div>
+    </div>
+    <div class="stack" style="margin-top:auto;gap:10px">
+      <a class="btn" href="DiagramResult.dc.html"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg>Generate diagram</a>
+      <p class="mu" style="text-align:center">AI can make mistakes. Check labels against your textbook.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const s = this.state?.s ?? 'Exam-ready labels';
+return { styles: ['Simple sketch','Exam-ready labels'].map(n => ({ n, on: n === s ? 'true' : 'false', cls: n === s ? 'on' : '', pick: () => this.setState({ s: n }) })) };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Calm Audio</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.art{position:relative;height:180px;border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.art::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(255,255,255,.35),rgba(255,255,255,0) 60%)}
+.thumb{width:46px;height:46px;border-radius:14px;flex:none}
+.play{width:64px;height:64px;border-radius:32px;border:0;background:var(--deep);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(18,41,42,.22);transition:transform .2s var(--ease)}
+.play:active{transform:scale(.95)}
+.play svg{width:22px;height:22px}
+.ln{font-size:13px;font-weight:600;color:var(--ink2);flex:none}
+.zz{transform-box:fill-box;animation:zz 3.6s ease-in-out infinite}
+@keyframes zz{0%,100%{opacity:.3;transform:translateY(2px)}50%{opacity:.9;transform:translateY(-3px)}}
+</style>
+</helmet>
+<div class="app lilac">
+  <div class="top">
+    <a class="ib" href="Wellbeing.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Calm audio<small>Relax and unwind</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="card stack" style="gap:16px">
+      <div class="art" style="{{cur.artSt}}">
+        <span class="fuss md tired" role="img" aria-label="Fuss resting"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz9B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz9F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz9E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz9T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz9C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz9F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz9B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz9B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz9T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz9F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz9F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz9E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz9C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz9C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span>
+      </div>
+      <div class="row" style="justify-content:space-between;align-items:flex-start">
+        <div class="tx" style="gap:4px"><span class="eyebrow">Now playing</span><b style="font-size:17px;font-weight:500;letter-spacing:-.02em">{{cur.n}}</b><span style="font-size:13px">{{cur.d}}</span></div>
+      </div>
+      <div class="stack" style="gap:8px">
+        <div class="bar"><i style="width:35%;background:var(--lilac-i)"></i></div>
+        <div class="row mu" style="justify-content:space-between"><span>3:30</span><span>{{cur.len}}</span></div>
+      </div>
+      <div class="row" style="justify-content:center;gap:28px">
+        <button class="ib" aria-label="Back 15 seconds" style="background:var(--track);box-shadow:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"></path><path d="M4.5 4v3.5H8"></path></svg></button>
+        <button class="play" onClick="{{toggle}}" aria-label="{{label}}">
+          <sc-if value="{{playing}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6v12M15 6v12"></path></svg></sc-if>
+          <sc-if value="{{stopped}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 5.8v12.4a.8.8 0 0 0 1.2.7l9.6-6.2a.8.8 0 0 0 0-1.4L9.7 5.1a.8.8 0 0 0-1.2.7z"></path></svg></sc-if>
+        </button>
+        <button class="ib" aria-label="Forward 15 seconds" style="background:var(--track);box-shadow:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"></path><path d="M19.5 4v3.5H16"></path></svg></button>
+      </div>
+    </div>
+    <div class="sec"><h2>Tracks</h2><span>4 sounds</span></div>
+    <div class="stack" style="gap:10px">
+      <sc-for list="{{tracks}}" as="t" hint-placeholder-count="4">
+        <button class="{{t.cls}}" onClick="{{t.pick}}" aria-pressed="{{t.on}}"><span class="thumb" style="{{t.artSt}}"></span><span class="tx"><b>{{t.n}}</b><span>{{t.d}}</span></span><span class="ln">{{t.len}}</span></button>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const sel = this.state?.sel ?? 0, playing = this.state?.playing ?? false;
+const list = [
+['Rain on leaves','Nature sounds for focus','10:00','radial-gradient(circle at 30% 30%,#CFE9DE,#8FC2B2 60%,#5E9A8B)'],
+['Slow ocean waves','Unwind after a long shift','15:00','radial-gradient(circle at 70% 30%,#E1EDF3,#A3C2D3 60%,#6F96AC)'],
+['Soft piano','Quiet music for study','20:00','radial-gradient(circle at 40% 60%,#ECE6F3,#C3B6D8 60%,#9585B5)'],
+['Body scan for sleep','Guided, 8 minutes','08:00','radial-gradient(circle at 60% 40%,#F4E3DC,#DDB5A8 60%,#C08A79)']
+];
+const tracks = list.map(([n, d, len, art], i) => ({ n, d, len, artSt: 'background:' + art, on: i === sel ? 'true' : 'false', cls: i === sel ? 'li lilac' : 'li', pick: () => this.setState({ sel: i, playing: true }) }));
+return { tracks, cur: tracks[sel], playing, stopped: !playing, label: playing ? 'Pause' : 'Play', toggle: () => this.setState({ playing: !playing }) };
+}
+}
+</script>
+</body>
+</html>

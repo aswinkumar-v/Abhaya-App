@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.gh{position:relative;overflow:hidden;margin:-4px -18px 0;padding:12px 18px 46px;color:#fff;background:radial-gradient(120% 70% at 100% 0%,rgba(110,214,186,.22) 0%,rgba(110,214,186,0) 55%),linear-gradient(180deg,#123832 0%,#16463F 55%,#1A5249 100%);display:flex;flex-direction:column;gap:0}
+.gh .top2{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+.lgl{position:relative;overflow:hidden;-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);background:linear-gradient(135deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 55%,rgba(255,255,255,.09) 100%);border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 1px rgba(255,255,255,.45),0 10px 24px -12px rgba(0,0,0,.5);color:#fff}
+.lgl::before{content:'';position:absolute;left:8%;right:8%;top:0;height:48%;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0));pointer-events:none}
+.lgl > *{position:relative}
+.who{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:50%;flex:none}
+.pav{flex:none;width:36px;height:36px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1.5px rgba(255,255,255,.7)}
+.pav svg{width:100%;height:100%;display:block}
+.who .gr{display:flex;flex-direction:column;gap:0;min-width:0}
+.who .gr span{font-size:11px;font-weight:500;color:rgba(255,255,255,.65)}
+.who .gr span svg{width:13px;height:13px;color:#FFD9A0}
+.who .gr b{font-size:14.5px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.bellg{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:22px;flex:none}
+.bellg svg{width:18px;height:18px}
+.bellg .dt{position:absolute;top:10px;right:11px;width:8px;height:8px;border-radius:4px;background:#7EE0C4;box-shadow:0 0 0 2px #1A574F}
+.gh .tl{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.gh .tl i{width:6px;height:6px;border-radius:3px;background:#7EE0C4;box-shadow:0 0 0 3px rgba(126,224,196,.22)}
+.gh h1{margin:8px 0 16px;font-size:20px;font-weight:500;letter-spacing:-.02em;line-height:1.18}
+.gh h1 span{color:rgba(255,255,255,.45)}
+.gh .acts{display:flex;gap:24px;margin:0}
+.pill{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 14px;border-radius:17px;font-size:13px;font-weight:500}
+.pill svg{width:14px;height:14px}
+.pill.hi{background:linear-gradient(135deg,rgba(214,250,238,.42) 0%,rgba(255,255,255,.16) 60%,rgba(214,250,238,.26) 100%);border-color:rgba(255,255,255,.4);font-weight:600}
+.gh::before{content:'';position:absolute;right:-70px;top:44px;width:230px;height:230px;border-radius:50%;border:1px dashed rgba(255,255,255,.14);box-shadow:0 0 0 26px rgba(255,255,255,.025),inset 0 0 0 26px rgba(255,255,255,.03);pointer-events:none}
+.gh::after{content:'';position:absolute;left:0;right:0;bottom:0;height:60px;background:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.4px) 0 0/14px 14px;-webkit-mask:linear-gradient(0deg,#000,transparent);mask:linear-gradient(0deg,#000,transparent);pointer-events:none}
+.gh > *{position:relative;z-index:1}
+.gh .hero2{display:flex;align-items:center;gap:10px}
+.gh .hero2 .htx{flex:1;min-width:0}
+.gh .fzw{position:relative;flex:none;width:92px;height:92px;margin:-6px -4px 0 0;display:grid;place-items:center}
+.gh .fzw::before{content:'';position:absolute;inset:8px;border-radius:50%;background:radial-gradient(circle,rgba(126,224,196,.35),rgba(126,224,196,0) 70%)}
+.gh .fzw .fuss{width:78px;height:78px;animation:ghf 4s ease-in-out infinite}
+.gh .fzw .sp{position:absolute;color:#BFF3E2;animation:ghs 2.6s ease-in-out infinite}
+.gh .fzw .sp svg{width:100%;height:100%;display:block}
+.gh .fzw .s1{width:12px;height:12px;top:4px;left:6px}
+.gh .fzw .s2{width:8px;height:8px;bottom:12px;right:0;animation-delay:1.1s;color:#FFD9A0}
+.gh .bub{position:absolute;top:-6px;right:62px;white-space:nowrap;font-size:10.5px;font-weight:600;color:#123832;background:#E9FBF4;padding:4px 9px;border-radius:10px 10px 2px 10px;box-shadow:0 6px 14px -6px rgba(0,0,0,.45)}
+@keyframes ghf{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-5px) rotate(3deg)}}
+@keyframes ghs{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.gh .fzw .fuss,.gh .fzw .sp{animation:none}}
+.sheet{margin:-26px -18px 0;padding:22px 18px 0;border-radius:26px 26px 0 0;background:#fff;position:relative;display:flex;flex-direction:column;gap:12px}
+.sheet .sec{margin-top:0}
+.sheet .sec h2{font-size:18px;font-weight:600;letter-spacing:-.015em}
+.today{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.today .tp{display:flex;align-items:center;gap:12px;padding:12px 14px;background:linear-gradient(100deg,#EAF6F1 0%,#F6FBF9 70%,#fff 100%);border-bottom:1px solid var(--line)}
+.today .ring,.today .ring svg{width:30px;height:30px}
+.today .go{flex:none;width:30px;height:30px;border-radius:15px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--teal);box-shadow:0 2px 6px rgba(18,48,46,.1)}
+.today .go svg{width:14px;height:14px}
+.ring{position:relative;width:44px;height:44px;flex:none}
+.ring svg{width:44px;height:44px;transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;color:var(--ink)}
+.today .tt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.today .tt span{font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--teal)}
+.today .tt b{font-size:14.5px;font-weight:600;letter-spacing:-.015em}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ft{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;padding:14px;border-radius:20px;min-height:112px;box-shadow:0 1px 2px rgba(18,48,46,.05),0 10px 22px -10px rgba(18,48,46,.22);transition:transform .2s var(--ease)}
+.ft:active{transform:scale(.98)}
+.ft::after{content:'';position:absolute;right:-26px;bottom:-34px;width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,.35)}
+.ft .fi{width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(18,48,46,.08)}
+.ft .fi svg{width:20px;height:20px}
+.ft .fx{display:flex;flex-direction:column;gap:2px;position:relative;z-index:1}
+.ft .fx b{font-size:15px;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+.ft .fx span{font-size:12px;color:var(--ink2)}
+.ft .fa{position:absolute;right:12px;top:12px;width:28px;height:28px;border-radius:14px;background:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.ft .fa svg{width:14px;height:14px}
+.t-mint{background:linear-gradient(155deg,#E4F4EF 0%,#C8E8DE 100%)}.t-mint .fi{color:var(--teal)}
+.t-blush{background:linear-gradient(155deg,#FDEDE4 0%,#F6D3C2 100%)}.t-blush .fi{color:#B5603F}
+.t-sky{background:linear-gradient(155deg,#E6F1F6 0%,#CBE1EC 100%)}.t-sky .fi{color:#2F6F8F}
+.t-lilac{background:linear-gradient(155deg,#EFEDFB 0%,#DAD4F4 100%)}.t-lilac .fi{color:#6150B5}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);padding:12px 4px}
+.strip > div{display:flex;flex-direction:column;align-items:center;gap:3px;border-left:1px solid var(--line)}
+.strip > div:first-child{border-left:0}
+.strip b{display:flex;align-items:center;gap:4px;font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.strip b svg{width:17px;height:17px;color:#D08A2E}
+.strip span{font-size:11.5px;color:var(--ink3);font-weight:500}
+.fzc{display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:22px;background:linear-gradient(160deg,#F6F4FD 0%,#EEEAFB 100%);border:1px solid #E7E2F7}
+.fzc .row1{display:flex;align-items:center;gap:12px}
+.fzc .row1 .t{flex:1;display:flex;flex-direction:column;gap:3px}
+.fzc .row1 .t b{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.fzc .row1 .t span{font-size:13px;line-height:1.4;color:var(--ink2)}
+.fzc .row1 a{font-size:12.5px;font-weight:600;color:#6A5FC0;align-self:flex-start}
+.fzc .moods{background:rgba(255,255,255,.7);border-radius:18px;padding:4px}
+.fzc .mood{padding:8px 0;gap:4px}
+.fzc .mood .fuss{width:38px;height:38px}
+</style>
+</helmet>
+<div class="app">
+  <div class="page">
+    <section class="gh" aria-label="Welcome and Abhaya Tutor">
+      <div class="top2">
+        <a class="who lgl" href="Profile.dc.html" aria-label="Your profile">
+          <span class="pav"><svg class="avsvg" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="havb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#BFEBDD"></stop><stop offset=".55" stop-color="#E7F1EC"></stop><stop offset="1" stop-color="#F7D6C4"></stop></linearGradient><linearGradient id="havh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2A2E"></stop><stop offset="1" stop-color="#21171A"></stop></linearGradient><clipPath id="havc"><circle cx="32" cy="32" r="32"></circle></clipPath></defs>
+<g clip-path="url(#havc)"><rect width="64" height="64" fill="url(#havb)"></rect>
+<path d="M13 44c-2-16 6-29 19-29s21 13 19 29c-1 6-5 10-9 12H22c-4-2-8-6-9-12z" fill="url(#havh)"></path>
+<path d="M10 66c2-10 10-15 22-15s20 5 22 15z" fill="#FFFFFF"></path>
+<path d="M10 66c2-10 10-15 22-15s20 5 22 15z" fill="#1E6B63" opacity=".9"></path>
+<path d="M26 51l6 6 6-6" fill="none" stroke="#E9FBF5" stroke-width="1.6" stroke-linejoin="round"></path>
+<rect x="28" y="42" width="8" height="10" rx="3.5" fill="#D99E7E"></rect>
+<ellipse cx="32" cy="34" rx="11" ry="12" fill="#EDB898"></ellipse>
+<path d="M20.5 33c0-9 5-13.5 11.5-13.5S43.5 24 43.5 33c-3-4-7-6.5-11.5-7-4 .5-8.5 3-11.5 7z" fill="url(#havh)"></path>
+<path d="M22 21.5c3-4 7-5.5 10-5.5s7 1.5 10 5.5l-1.5 3c-2.5-2-5.5-3-8.5-3s-6 1-8.5 3z" fill="#FFFFFF"></path>
+<path d="M32 18.3v4M30 20.3h4" stroke="#E0674A" stroke-width="1.4" stroke-linecap="round"></path>
+<circle cx="27.5" cy="34.5" r="1.5" fill="#2B1E1E"></circle><circle cx="36.5" cy="34.5" r="1.5" fill="#2B1E1E"></circle>
+<circle cx="28" cy="34" r=".5" fill="#fff"></circle><circle cx="37" cy="34" r=".5" fill="#fff"></circle>
+<circle cx="25.2" cy="38.4" r="2" fill="#F08A84" opacity=".4"></circle><circle cx="38.8" cy="38.4" r="2" fill="#F08A84" opacity=".4"></circle>
+<path d="M29.5 39.2q2.5 2.4 5 0" fill="none" stroke="#9E4E47" stroke-width="1.3" stroke-linecap="round"></path>
+</g></svg></span>
+        </a>
+        <a class="bellg lgl" href="Notifications.dc.html" aria-label="Notifications, 2 new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.5 1.5H5z"></path><path d="M10 20.5h4"></path></svg><i class="dt"></i></a>
+      </div>
+      <div class="hero2">
+        <div class="htx">
+          <span class="tl"><i></i>Abhaya Tutor · 24/7</span>
+          <h1>Ask anything,<br><span>learn your way</span></h1>
+        </div>
+        <a class="fzw" href="ChooseScenario.dc.html" aria-label="Ask Fuss, start a new chat"><span class="bub">Hi Ananya!</span><span class="sp s1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg></span><span class="sp s2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg></span><span class="fuss md happy"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="ghfzB" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="ghfzF" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="ghfzE"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="ghfzT"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="ghfzC"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#ghfzF)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#ghfzB)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#ghfzB)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#ghfzT)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#ghfzF)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#ghfzF)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#ghfzE)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#ghfzC)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#ghfzC)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span></a>
+      </div>
+      <div class="acts">
+        <a class="pill hi lgl" href="ChooseScenario.dc.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>New chat</a>
+        <a class="pill lgl" href="Chat.dc.html" onClick="{{resume}}" aria-label="Resume chest pain viva with Dr. Meera Nair"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"></path><path d="M4.5 4.5v3.5H8"></path></svg>Resume</a>
+      </div>
+    </section>
+
+    <div class="sheet">
+      <div class="sec"><h2>Learn</h2></div>
+      <div class="fgrid"><a class="ft t-mint" href="NotesBuddy.dc.html"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10.5a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5z"></path><path d="M14 3.5V8h4M9 12.5h6M9 16h4"></path></svg></span><span class="fx"><b>Notes Buddy</b><span>Notes, flashcards, papers</span></span><span class="fa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="ft t-blush" href="DiagramTrainer.dc.html"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><circle cx="17" cy="7" r="3.5"></circle><path d="M7 14l3.5 6.5h-7zM14 14h6.5v6.5H14z"></path></svg></span><span class="fx"><b>Diagram Trainer</b><span>Upload or generate</span></span><span class="fa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="ft t-sky" href="Scenarios.dc.html"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7"></path></svg></span><span class="fx"><b>Clinical Cases</b><span>3 patient cases</span></span><span class="fa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="ft t-lilac" href="ExamSetup.dc.html"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 4.5V3.5h6v1M9 13l2 2 4-4"></path></svg></span><span class="fx"><b>Mock Exams</b><span>Exam in 17 days</span></span><span class="fa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div>
+
+    </div>
+    <div class="card today">
+      <a class="tp" href="TodaysPlan.dc.html" aria-label="Today's plan: cardiovascular system, 2 of 4 tasks done">
+        <span class="ring" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="#D6E9E3" stroke-width="5"></circle><circle cx="22" cy="22" r="18" fill="none" stroke="#1E6B63" stroke-width="5" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="56.5"></circle></svg></span>
+        <span class="tt"><span>Today · 2 of 4 done</span><b>Cardiovascular system</b></span>
+        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+      </a>
+      <a class="strip" href="Progress.dc.html" aria-label="My progress: 7 day streak, 78 percent exam ready, 3.3 hours this week">
+        <div><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a6 6 0 0 0 6-6c0-4-3-6-4-9-1.5 2-2 3.5-2 5-1-.5-2-1.5-2.5-3C8 10 6 12 6 15a6 6 0 0 0 6 6z"></path></svg>7</b><span>Day streak</span></div>
+        <div><b>78%</b><span>Exam ready</span></div>
+        <div><b>3.3h</b><span>This week</span></div>
+      </a>
+    </div>
+
+    <section class="fzc" aria-label="Mood check-in with Fuss">
+      <div class="row1">
+        <span class="{{bigFz}}" role="img" aria-label="Fuss"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fzh0B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fzh0F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fzh0E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fzh0T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fzh0C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fzh0F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fzh0B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fzh0B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fzh0T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fzh0F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fzh0F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fzh0E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fzh0C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fzh0C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span>
+        <div class="t"><b>Hi, I'm Fuss. How are you feeling?</b><span aria-live="polite">{{moodMsg}}</span></div>
+      </div>
+      <div class="moods">
+        <sc-for list="{{moods}}" as="m" hint-placeholder-count="5">
+          <button class="{{m.cls}}" onClick="{{m.pick}}" aria-pressed="{{m.on}}"><span class="{{m.fz}}"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fzh1B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fzh1F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fzh1E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fzh1T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fzh1C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fzh1F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fzh1B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fzh1B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fzh1T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fzh1F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fzh1F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fzh1E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fzh1C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fzh1C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span>{{m.n}}</button>
+        </sc-for>
+      </div>
+      <a href="Wellbeing.dc.html">More in Wellbeing →</a>
+    </section>
+  </div>
+  <nav class="nav" aria-label="Main">
+    <a href="Home.dc.html" class="on" aria-current="page" aria-label="Home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 4l8.5 6.5"></path><path d="M5.5 9v10a1 1 0 0 0 1 1H10v-5.5h4V20h3.5a1 1 0 0 0 1-1V9"></path></svg></i><span>Home</span></a>
+    <a href="ChatCentre.dc.html" aria-label="Chat"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-11 6.6L4.5 19.5l1.3-4.2A7.5 7.5 0 1 1 20 11.5z"></path><path d="M9 11.5h.01M12.5 11.5h.01M16 11.5h.01"></path></svg></i><span>Chat</span></a>
+    <a href="Wellbeing.dc.html" class="ai" aria-label="Wellbeing"><i><span class="fuss xs calm still"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz1B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz1F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz1E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz1T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz1C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz1F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz1B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz1B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz1T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz1F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz1F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz1E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz1C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz1C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span></i><span>Wellbeing</span></a>
+    <a href="ExamSetup.dc.html" aria-label="Exams"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 4.5V3.5h6v1M9 13l2 2 4-4"></path></svg></i><span>Exams</span></a>
+    <a href="Profile.dc.html" aria-label="Profile"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.3-3.3 3.9-5 7-5s5.7 1.7 7 5"></path></svg></i><span>Profile</span></a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const LS = { get: (k, d) => { try { const v = localStorage.getItem('abhaya.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set: (k, v) => { try { localStorage.setItem('abhaya.' + k, JSON.stringify(v)); } catch (e) {} } };
+const mood = this.state?.mood ?? 'Good';
+const moods = [
+  ['Great','Lovely! Ride that energy into today\'s case.'],
+  ['Good','Nice. You\'re halfway through today\'s plan.'],
+  ['Okay','Steady is fine. Start with the shortest task.'],
+  ['Stressed','Let\'s take a 1 minute breather first.'],
+  ['Low','Be gentle with yourself. One small task is enough.']
+];
+const FZ = { Great: 'happy', Good: 'calm', Okay: 'okay', Stressed: 'stressed', Low: 'sad' };
+return {
+  resume: () => { LS.set('scenario', 'Viva and exam prep'); LS.set('mode', 'Story mode'); LS.set('teacher', 'Dr. Meera Nair'); LS.set('modeIdx', 0); },
+  moods: moods.map(([nm]) => ({ n: nm, on: nm === mood ? 'true' : 'false', fz: 'fuss sm ' + FZ[nm] + (nm === mood ? '' : ' still'), cls: nm === mood ? 'mood on' : 'mood', pick: () => this.setState({ mood: nm }) })),
+  moodMsg: moods.find(m => m[0] === mood)[1],
+  bigFz: 'fuss md ' + FZ[mood]
+};
+}
+}
+</script>
+</body>
+</html>

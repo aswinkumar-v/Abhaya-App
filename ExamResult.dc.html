@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exam result</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.score{font-size:56px;font-weight:500;letter-spacing:-.04em;line-height:1}
+.score small{font-size:20px;font-weight:500;color:rgba(255,255,255,.65);margin-left:2px}
+.sbar{height:10px;border-radius:5px;background:rgba(255,255,255,.16);overflow:hidden}
+.sbar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#7FCBBB,#fff)}
+.inf{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:20px;background:#fff;box-shadow:var(--shadow)}
+.inf b{font-size:22px;font-weight:500;letter-spacing:-.03em;line-height:1}
+.inf span{font-size:12px;color:var(--ink3)}
+.mk{width:34px;height:34px;border-radius:17px}
+.mk svg{width:15px;height:15px}
+.mk.ok{background:var(--ok-bg);color:var(--ok)}.mk.bad{background:var(--bad-bg);color:var(--bad)}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="Home.dc.html" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></a>
+    <span class="ttl">Results<small>Medical-Surgical · MCQ</small></span>
+    <a class="ib" href="ExamHistory.dc.html" aria-label="Exam history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"></path><path d="M4.5 4.5v3.5H8M12 8v4l2.8 1.8"></path></svg></a>
+  </div>
+  <div class="page nonav">
+    <div class="tealx stack" style="gap:18px">
+      <div class="row" style="justify-content:space-between">
+        <span style="font-size:15px;font-weight:600">Good effort, Ananya</span>
+        <span class="gpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg>Up from 5/10</span>
+      </div>
+      <span class="score">7<small>/10</small></span>
+      <div class="sbar" role="progressbar" aria-label="Score" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10"><i style="width:70%"></i></div>
+    </div>
+    <div class="grid3">
+      <div class="inf"><b style="color:var(--ok)">7</b><span>Correct</span></div>
+      <div class="inf"><b style="color:var(--bad)">3</b><span>To revise</span></div>
+      <div class="inf"><b>8:20</b><span>Time</span></div>
+    </div>
+    <div class="note">
+      <span class="nb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg></span>
+      <span style="flex:1"><b>Revise fluid and electrolyte balance</b>2 of 3 misses. Added to tomorrow's plan.</span>
+    </div>
+    <div class="sec"><h2>Question review</h2><span>Tap to discuss</span></div>
+    <div class="group">
+      <sc-for list="{{rev}}" as="r" hint-placeholder-count="4">
+        <a class="li" href="ChooseMode.dc.html"><span class="{{r.cls}}" aria-label="{{r.al}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{r.p}}"></path></svg></span><span class="tx"><b style="font-size:14px;font-weight:500">{{r.t}}</b></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></a>
+      </sc-for>
+    </div>
+    <div class="grid2" style="margin-top:4px">
+      <a class="btn ghost" href="ChooseMode.dc.html">Review with AI</a>
+      <a class="btn" href="ExamSetup.dc.html">New exam</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const Y = ['ic mk ok','M5.5 12.5l4 4 9-9','Correct'], N = ['ic mk bad','M7.5 7.5l9 9M16.5 7.5l-9 9','Wrong'];
+return { rev: [
+[Y,'Expected ECG finding in AMI?'],
+[N,'Priority dietary advice in CKD?'],
+[Y,'First medication given in AMI?'],
+[N,'Most urgent electrolyte concern in CKD?']
+].map(([m, t]) => ({ cls: m[0], p: m[1], al: m[2], t })) };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Choose scenario</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.steps{display:flex;justify-content:center;gap:6px;margin-top:6px}
+.steps i{width:24px;height:5px;border-radius:3px;background:rgba(18,48,46,.12)}
+.steps i.on{background:var(--teal)}
+.opt{min-height:72px;padding:12px 18px 12px 12px;border-radius:36px}
+.opt .ic{width:46px;height:46px}
+.opt .tx b{font-size:15px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="ChatCentre.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">New chat<span class="steps" role="img" aria-label="Step 1 of 2"><i class="on"></i><i></i></span></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">What would you like<span>to do today?</span></h1>
+    <p class="sub" style="margin:-6px 0 4px">Your teacher adapts to your pick.</p>
+    <div class="stack" role="radiogroup" aria-label="Scenario">
+      <sc-for list="{{opts}}" as="o" hint-placeholder-count="5">
+        <button class="{{o.cls}}" onClick="{{o.pick}}" role="radio" aria-checked="{{o.on}}">
+          <span class="{{o.ic}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{o.d}}"></path></svg></span>
+          <span class="tx"><b>{{o.n}}</b><span>{{o.s}}</span></span>
+          <span class="radio"></span>
+        </button>
+      </sc-for>
+    </div>
+    <a class="btn" href="ChooseMode.dc.html" onClick="{{go}}" style="margin-top:auto">Continue<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const LS = { get: (k, d) => { try { const v = localStorage.getItem('abhaya.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set: (k, v) => { try { localStorage.setItem('abhaya.' + k, JSON.stringify(v)); } catch (e) {} } };
+const sel = this.state?.sel ?? 0;
+const list = [
+['Learn a topic','Understand a concept from scratch','M12 6.5C10.3 5.2 8 4.5 4 4.5v13c4 0 6.3.7 8 2 1.7-1.3 4-2 8-2v-13c-4 0-6.3.7-8 2zM12 6.5v13','c-mint'],
+['Viva and exam prep','Practise like the real thing','M9 11l3 3 8-8M20 12v7H4V5h11','c-lilac'],
+['Discuss a patient case','Think through care decisions','M3 12h4l2-5 3 10 2-5h7','c-blush'],
+['Clear a doubt','Quick help with one question','M9.5 9a2.5 2.5 0 1 1 3.6 2.3c-.7.4-1.1 1-1.1 1.7V14M12 17.5v.5','c-sky'],
+['Surprise me','A random case to stay sharp','M4.5 4.5h5v5h-5zM14.5 4.5h5v5h-5zM4.5 14.5h5v5h-5zM14.5 14.5h5v5h-5z','c-sand']
+];
+return { go: () => { LS.set('scenario', list[sel][0]); LS.set('from', ''); }, opts: list.map(([n, s, d, c], i) => ({ n, s, d, ic: 'ic rd ' + c, on: i === sel ? 'true' : 'false', cls: i === sel ? 'opt on' : 'opt', pick: () => this.setState({ sel: i }) })) };
+}
+}
+</script>
+</body>
+</html>

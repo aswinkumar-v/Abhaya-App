@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exam question</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.dash{display:flex;gap:6px;padding:0 20px 10px}
+.dash i{flex:1;height:5px;border-radius:3px;background:#fff;transition:background .3s var(--ease)}
+.qc{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px}
+.qc::after{content:'';position:absolute;right:-46px;top:-46px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#EEF4F9 0%,#DCE9F2 100%);pointer-events:none}
+.qc > *{position:relative;z-index:1}
+.q{margin:0;font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1.35}
+.fbk{display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:22px}
+.fbk.ok{background:var(--ok-bg)}.fbk.bad{background:var(--bad-bg)}
+.fbk b{font-size:14px;font-weight:700}.fbk.ok b{color:var(--ok)}.fbk.bad b{color:var(--bad)}
+.bm{width:56px;height:56px;border-radius:28px;border:0;flex:none;background:#fff;color:var(--ink);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;transition:all .2s var(--ease)}
+.bm svg{width:19px;height:19px}
+.bm.on{background:var(--deep);color:#fff}.bm.on svg{fill:currentColor}
+.sheetbg{position:absolute;inset:0;z-index:30;background:rgba(18,41,42,.38);display:flex;align-items:flex-end}
+.sheet{width:100%;display:flex;flex-direction:column;gap:12px;padding:22px 20px 30px;border-radius:28px 28px 0 0;background:#fff}
+.sheet b{font-size:18px;font-weight:600}
+.sheet .body{margin:0}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <button class="ib" onClick="{{askEnd}}" aria-label="End exam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></button>
+    <span class="ttl">Med-Surg · MCQ<small>Question {{qn}} of 10</small></span>
+    <span class="chipb" role="timer" aria-label="Time left 6 minutes 42 seconds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="7.5"></circle><path d="M12 9.5V13l2.5 1.5M10 3h4"></path></svg>6:42</span>
+  </div>
+  <div class="dash" role="progressbar" aria-label="Question {{qn}} of 10" aria-valuenow="{{qn}}" aria-valuemin="0" aria-valuemax="10">
+    <sc-for list="{{dashes}}" as="d" hint-placeholder-count="10"><i style="{{d.st}}"></i></sc-for>
+  </div>
+  <div class="page nonav" style="padding-top:8px">
+    <div class="card qc">
+      <span class="tag s" style="align-self:flex-start">{{tag}}</span>
+      <h1 class="q">{{qText}}</h1>
+    </div>
+    <div class="stack" role="group" aria-label="Answer options">
+      <sc-for list="{{opts}}" as="o" hint-placeholder-count="4">
+        <button class="{{o.cls}}" onClick="{{o.pick}}" aria-pressed="{{o.on}}"><span class="lt">{{o.k}}</span><span style="flex:1">{{o.t}}</span></button>
+      </sc-for>
+    </div>
+    <sc-if value="{{checked}}" hint-placeholder-val="{{false}}">
+      <div class="{{fbCls}}" role="status">
+        <b>{{fbTitle}}</b>
+        <p class="body" style="font-size:13px">{{why}}</p>
+      </div>
+    </sc-if>
+    <div class="row" style="margin-top:auto">
+      <button class="{{bmCls}}" onClick="{{bm}}" aria-pressed="{{bmOn}}" aria-label="Bookmark question"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4.5h10v15.5l-5-3.5-5 3.5z"></path></svg></button>
+      <sc-if value="{{notChecked}}" hint-placeholder-val="{{true}}"><button class="{{checkCls}}" onClick="{{check}}" aria-disabled="{{dis}}" style="flex:1;width:auto">Check answer</button></sc-if>
+      <sc-if value="{{moreQ}}" hint-placeholder-val="{{false}}"><button class="btn" onClick="{{next}}" style="flex:1;width:auto">Next question<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></sc-if>
+      <sc-if value="{{lastQ}}" hint-placeholder-val="{{false}}"><a class="btn" href="ExamResult.dc.html" style="flex:1;width:auto">See results<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ending}}" hint-placeholder-val="{{false}}">
+    <div class="sheetbg" role="dialog" aria-modal="true" aria-label="End exam?">
+      <div class="sheet">
+        <b>End exam?</b>
+        <p class="body" style="font-size:14px">You've answered {{answered}} of 10. We'll score what you've done so far.</p>
+        <div class="row" style="gap:10px"><button class="btn ghost" onClick="{{keep}}" style="flex:1;width:auto">Keep going</button><a class="btn ink" href="ExamResult.dc.html" style="flex:1;width:auto">End exam</a></div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const qi = this.state?.qi ?? 0, hist = this.state?.hist ?? [];
+const sel = this.state?.sel ?? null, checked = this.state?.checked ?? false, saved = this.state?.saved ?? false, ending = this.state?.ending ?? false;
+const BANK = [
+['Cardiology','A patient with acute MI arrives. Which medication is usually given first?',['Morphine','Aspirin','IV fluids','Furosemide'],1,'Aspirin stops platelets clumping, so the clot stops growing. It is first-line in AMI.'],
+['Renal care','Which ECG change is an early sign of hyperkalaemia?',['Tall peaked T waves','ST depression','Prolonged PR only','U waves'],0,'High potassium makes T waves tall and peaked before other changes appear.'],
+['Fluids & electrolytes','Which IV fluid is isotonic?',['0.45% saline','5% dextrose in 0.45% saline','0.9% saline','3% saline'],2,'0.9% saline has about the same tonicity as plasma, so it stays in the vessels.'],
+['Respiratory','In acute asthma, which drug acts fastest to open the airways?',['Inhaled salbutamol','Oral prednisolone','Montelukast','Theophylline'],0,'Short-acting beta-2 agonists relax airway muscle within minutes.']
+];
+const [tag, qText, list, right, why] = BANK[qi % BANK.length];
+const ok = sel === right;
+const curCol = checked ? (ok ? 'var(--ok)' : 'var(--bad)') : 'var(--deep)';
+return {
+qn: qi + 1, tag, qText, why,
+moreQ: checked && qi < 9, lastQ: checked && qi >= 9,
+next: () => this.setState({ qi: qi + 1, hist: [...hist, ok], sel: null, checked: false, saved: false }),
+ending, answered: hist.length + (checked ? 1 : 0),
+askEnd: () => this.setState({ ending: true }), keep: () => this.setState({ ending: false }),
+checked, notChecked: !checked,
+checkCls: sel === null ? 'btn off' : 'btn',
+dis: sel === null ? 'true' : 'false',
+check: () => { if (sel !== null) this.setState({ checked: true }); },
+bmCls: saved ? 'bm on' : 'bm', bmOn: saved ? 'true' : 'false',
+bm: () => this.setState({ saved: !saved }),
+fbCls: ok ? 'fbk ok' : 'fbk bad',
+fbTitle: ok ? 'Correct, well done' : 'Not quite. The answer is ' + list[right],
+dashes: Array.from({ length: 10 }, (_, i) => ({ st: 'background:' + (i < hist.length ? (hist[i] ? '#4FBFAE' : '#E59A7E') : i === qi ? curCol : '#E6ECEA') })),
+opts: list.map((t, i) => {
+const isSel = i === sel, isRight = checked && i === right, isWrong = checked && isSel && !ok;
+return {
+t, k: 'ABCD'[i], on: isSel ? 'true' : 'false',
+cls: isRight ? 'opt ok' : isWrong ? 'opt bad' : isSel ? 'opt on' : 'opt',
+pick: () => { if (!checked) this.setState({ sel: i }); }
+};
+})
+};
+}
+}
+</script>
+</body>
+</html>

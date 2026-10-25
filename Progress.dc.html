@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My progress</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.rd{font-size:52px;font-weight:500;letter-spacing:-.045em;line-height:1}
+.rd small{font-size:22px;font-weight:500;color:rgba(255,255,255,.7)}
+.ri{width:32px;height:32px;border-radius:16px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center}
+.ri svg{width:16px;height:16px}
+.donut{position:relative;width:200px;height:200px;margin:4px auto}
+.donut svg{position:absolute;inset:0}
+.donut .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.donut .c b{font-size:24px;font-weight:500;letter-spacing:-.03em;line-height:1}
+.lg{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink)}
+.lg i{width:10px;height:10px;border-radius:5px;flex:none}
+.lg span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lg b{font-weight:600}
+.bars{display:flex;align-items:flex-end;gap:8px;height:160px}
+.bc{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px}
+.bc i{display:block;width:100%;border-radius:10px;background:#D3E1DE;transition:height .4s var(--ease)}
+.bc i.now{background:var(--deep)}
+.bc em{font-style:normal;font-size:10px;font-weight:600;color:var(--ink3)}
+.bc em.now{height:24px;padding:0 8px;border-radius:8px;background:var(--deep);color:#fff;font-size:11px;font-weight:700;display:inline-flex;align-items:center}
+.bl{font-size:11px;color:var(--ink3);white-space:nowrap}.bl.now{font-weight:700;color:var(--ink)}
+.ms{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;font-weight:600;text-align:center;color:var(--ink)}
+.ms i{width:62px;height:62px;border-radius:31px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 6px 14px rgba(18,48,46,.1)}
+.ms i svg{width:22px;height:22px}
+.ms.lock{color:var(--ink3)}
+.ms.lock i{background:transparent;border:2px dashed #C6D3D0;color:var(--ink3);box-shadow:none}
+.focus{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:24px;background:linear-gradient(160deg,#FCE9DE 0%,#F6CFBB 100%)}
+.focus .eb{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--blush-i)}
+.focus .eb svg{width:14px;height:14px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="Home.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl" style="font-size:17px;font-weight:500">Progress</span>
+    <a class="ib" href="ExamHistory.dc.html" aria-label="Exam history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"></path><path d="M4.5 4.5v3.5H8M12 8v4l2.8 1.8"></path></svg></a>
+  </div>
+  <div class="page nonav">
+    <div class="seg" role="group" aria-label="Range"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" onClick="{{t.pick}}" aria-pressed="{{t.on}}">{{t.n}}</button></sc-for></div>
+    <div class="tealx stack" style="gap:14px">
+      <div class="row" style="justify-content:space-between">
+        <span class="row" style="gap:10px;font-size:14px;font-weight:500"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3.5"></circle></svg></span>Exam readiness</span>
+        <span class="mu">Overall progress 68%</span>
+      </div>
+      <div class="row" style="justify-content:space-between;align-items:flex-end">
+        <span class="rd">78<small>%</small></span>
+        <div class="stack" style="gap:4px;align-items:flex-end"><span class="gpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg>15%</span><span class="mu">vs last week</span></div>
+      </div>
+      <div role="progressbar" aria-label="Exam readiness" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="height:10px;border-radius:5px;background:rgba(255,255,255,.18);overflow:hidden"><div style="width:78%;height:100%;border-radius:5px;background:linear-gradient(90deg,#7FD3C0,#FFFFFF)"></div></div>
+      <div class="row" style="justify-content:space-between;font-size:12px;color:rgba(255,255,255,.75)"><span>Weak spots: Pharmacology, Microbiology</span><span>Goal 90%</span></div>
+    </div>
+    <div class="card stack" style="gap:16px">
+      <div class="row" style="justify-content:space-between"><p class="h3" style="font-size:18px;font-weight:500">Study time by subject</p><span class="mu">{{rangeLbl}}</span></div>
+      <div class="donut">
+        <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="{{d0.c}}" stroke-width="30" stroke-dasharray="{{d0.da}}" stroke-dashoffset="{{d0.off}}" transform="rotate(-90 100 100)"></circle>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="{{d1.c}}" stroke-width="30" stroke-dasharray="{{d1.da}}" stroke-dashoffset="{{d1.off}}" transform="rotate(-90 100 100)"></circle>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="{{d2.c}}" stroke-width="30" stroke-dasharray="{{d2.da}}" stroke-dashoffset="{{d2.off}}" transform="rotate(-90 100 100)"></circle>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="{{d3.c}}" stroke-width="30" stroke-dasharray="{{d3.da}}" stroke-dashoffset="{{d3.off}}" transform="rotate(-90 100 100)"></circle>
+        </svg>
+        <div class="c"><b>{{total}}</b><span class="mu">Total studied</span></div>
+      </div>
+      <div class="grid2" style="row-gap:10px;column-gap:20px">
+        <sc-for list="{{segs}}" as="s" hint-placeholder-count="4">
+          <div class="lg"><i style="{{s.dot}}"></i><span>{{s.n}}</span><b>{{s.pl}}</b></div>
+        </sc-for>
+      </div>
+    </div>
+    <div class="note">
+      <span class="nb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"></path><path d="M5 19l7-7"></path></svg></span>
+      <span style="flex:1"><b>{{noteT}}</b>Great consistency. Keep the streak alive.</span>
+    </div>
+    <div class="card stack" style="gap:18px">
+      <div class="row" style="justify-content:space-between"><p class="h3" style="font-size:18px;font-weight:500">{{trendT}}</p><span class="mu">Minutes studied</span></div>
+      <div class="bars">
+        <sc-for list="{{bars}}" as="b" hint-placeholder-count="7">
+          <div class="bc"><em class="{{b.vc}}">{{b.v}}</em><i class="{{b.cls}}" style="{{b.style}}"></i><span class="{{b.lc}}">{{b.d}}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div class="card stack" style="gap:16px">
+      <p class="h3" style="font-size:18px;font-weight:500">Topic mastery</p>
+      <sc-for list="{{topics}}" as="t" hint-placeholder-count="4">
+        <div class="stack" style="gap:8px">
+          <div class="row" style="justify-content:space-between"><span style="font-size:14px;font-weight:600">{{t.n}}</span><span class="mu" style="font-weight:600">{{t.label}}</span></div>
+          <div class="bar"><i style="{{t.style}}"></i></div>
+        </div>
+      </sc-for>
+    </div>
+    <div class="card stack" style="gap:18px">
+      <div class="row" style="justify-content:space-between"><p class="h3" style="font-size:18px;font-weight:500">Milestones</p><span class="mu">2 of 4</span></div>
+      <div class="row" style="gap:6px;align-items:flex-start">
+        <div class="ms"><i class="c-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></i>First quiz</div>
+        <div class="ms"><i style="background:linear-gradient(160deg,#FBF1D3,#F5DE9A);color:var(--sand-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a6 6 0 0 0 6-6c0-4-3-6-4-9-1.5 2-2 3.5-2 5-1-.5-2-1.5-2.5-3C8 10 6 12 6 15a6 6 0 0 0 6 6z"></path></svg></i>7-day streak</div>
+        <div class="ms lock"><i aria-label="Locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="10.5" width="13" height="9.5" rx="2.5"></rect><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"></path></svg></i>Top scorer</div>
+        <div class="ms lock"><i aria-label="Locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="10.5" width="13" height="9.5" rx="2.5"></rect><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"></path></svg></i>Study master</div>
+      </div>
+    </div>
+    <div class="focus">
+      <span class="eb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg>Focus next</span>
+      <p class="title">Critical Care</p>
+      <p class="body" style="color:var(--ink)">A 15-minute recap and 10 MCQs could lift your readiness by about 5%.</p>
+      <a class="btn ink sm" href="TodaysPlan.dc.html" style="align-self:flex-start;margin-top:4px">Add to today's plan</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const tab = this.state?.tab ?? 'Week';
+const week = [['M',35],['T',20],['W',45],['T',30],['F',50],['S',42],['S',0]];
+const month = [['W1',180],['W2',140],['W3',210],['W4',190]];
+const isWeek = tab === 'Week';
+const data = isWeek ? week : month;
+const max = Math.max(...data.map(d => d[1]));
+const cur = isWeek ? 5 : data.length - 1;
+const sum = data.reduce((a, d) => a + d[1], 0);
+const total = Math.floor(sum / 60) + 'h' + (sum % 60 ? ' ' + (sum % 60) + 'm' : '');
+const C = 2 * Math.PI * 80, GAP = 5;
+let start = 0;
+const subj = [['Medical-Surgical',40,'#17423F'],['Anatomy',25,'#5FA89D'],['Pharmacology',20,'#A8D4CB'],['Critical Care',15,'#CBD8D6']];
+const segs = subj.map(([n, p, c]) => {
+const len = p / 100 * C;
+const sg = { n, c, pl: p + '%', dot: 'background:' + c, da: (len - GAP).toFixed(1) + ' ' + C.toFixed(1), off: (-start).toFixed(1) };
+start += len;
+return sg;
+});
+return {
+d0: segs[0], d1: segs[1], d2: segs[2], d3: segs[3],
+tabs: ['Week','Month'].map(n => ({ n, on: n === tab ? 'true' : 'false', cls: n === tab ? 'on' : '', pick: () => this.setState({ tab: n }) })),
+rangeLbl: isWeek ? 'This week' : 'This month',
+trendT: isWeek ? 'Weekly trend' : 'Monthly trend',
+noteT: isWeek ? 'You studied 15% more than last week!' : 'You studied 12 hours this month!',
+total,
+segs,
+bars: data.map(([d, v], i) => {
+const now = i === cur;
+return {
+d: now ? (isWeek ? 'Today' : 'Now') : d, v: now ? v + 'm' : String(v),
+vc: now ? 'now' : '', cls: now ? 'now' : '', lc: now ? 'bl now' : 'bl',
+style: 'height:' + Math.max(6, Math.round(v / max * 100)) + 'px'
+};
+}),
+topics: [['Anatomy & Physiology',82],['Medical-Surgical',64],['Critical Care',48],['Pharmacology',57]].map(([n, p]) => ({ n, label: p + '%', style: 'width:' + p + '%' }))
+};
+}
+}
+</script>
+</body>
+</html>

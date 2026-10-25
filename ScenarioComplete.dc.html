@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scenario complete</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.ring{width:104px;height:104px;border-radius:52px;flex:none;background:conic-gradient(#9FE3D1 270deg,rgba(255,255,255,.16) 0);display:flex;align-items:center;justify-content:center}
+.ring span{width:84px;height:84px;border-radius:42px;background:#1D5B55;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:500;letter-spacing:-.03em;color:#fff}
+.pt{display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.45;color:var(--ink)}
+.pt .ic{width:36px;height:36px;border-radius:18px}
+.pt .ic svg{width:16px;height:16px}
+.ref{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--ink2)}
+.ref svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--ink3)}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <span class="sp"></span>
+    <span class="ttl">Summary<small>Acute myocardial infarction</small></span>
+    <a class="ib" href="Scenarios.dc.html" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></a>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Case complete<span>nicely reasoned, Ananya</span></h1>
+
+    <div class="tealx row" style="gap:18px">
+      <div class="ring" role="img" aria-label="Score 3 of 4"><span>3/4</span></div>
+      <div class="stack" style="gap:6px">
+        <p class="h3" style="color:#fff;font-size:18px;font-weight:500">Decisions matched</p>
+        <p class="mu">3 of 4 decisions matched an experienced nurse.</p>
+      </div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="row" style="justify-content:space-between"><p class="h3">You did well</p><span class="tag">2 strengths</span></div>
+      <div class="pt"><span class="ic c-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="flex:1">Spotted ST elevation as the key ECG finding</span></div>
+      <div class="pt"><span class="ic c-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="flex:1">Gave aspirin as the first medication</span></div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="row" style="justify-content:space-between"><p class="h3">Worth reviewing</p><span class="tag p">1 to revisit</span></div>
+      <div class="pt"><span class="ic c-blush"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7.5v5.5M12 16.5v.2"></path></svg></span><span style="flex:1">When to escalate to the senior team as vitals change</span></div>
+    </div>
+
+    <div class="card stack" style="gap:12px">
+      <p class="h3">References</p>
+      <div class="ref"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.3 5.2 8 4.5 4 4.5v13c4 0 6.3.7 8 2 1.7-1.3 4-2 8-2v-13c-4 0-6.3.7-8 2zM12 6.5v13"></path></svg><span>AHA/ACC Guidelines for Management of STEMI, 2022.</span></div>
+      <div class="ref"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.3 5.2 8 4.5 4 4.5v13c4 0 6.3.7 8 2 1.7-1.3 4-2 8-2v-13c-4 0-6.3.7-8 2zM12 6.5v13"></path></svg><span>Lewis et al., Medical-Surgical Nursing, 11th Ed.</span></div>
+    </div>
+
+    <div class="grid2" style="margin-top:6px">
+      <a class="btn ghost" href="ChooseMode.dc.html">Discuss it</a>
+      <a class="btn" href="Scenarios.dc.html">Next case</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

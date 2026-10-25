@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI teacher chat</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.ttl .chg{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--teal);margin-top:2px}
+.ttl .chg::before{content:'';width:7px;height:7px;border-radius:4px;background:#3FB39E}
+.when{align-self:center;font-size:12px;font-weight:500;color:var(--ink3)}
+.ans{display:flex;flex-direction:column;gap:14px}
+.ans .hd{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ans .seg{padding:4px}
+.ans .seg button{height:34px;padding:0 14px;font-size:13px;flex:none;border-radius:17px}
+.ans p{margin:0;font-size:15px;line-height:1.55;color:var(--ink)}
+.kp{position:relative;overflow:hidden;border-radius:20px;padding:16px 18px;color:#fff;background:radial-gradient(70% 90% at 90% 0%,rgba(120,200,185,.35) 0%,rgba(120,200,185,0) 70%),linear-gradient(140deg,#2C7E73 0%,#1A5650 60%,#143E3C 100%)}
+.kp .lb{font-size:12px;color:rgba(255,255,255,.72)}
+.kp .eq{display:flex;align-items:flex-end;justify-content:space-between;margin-top:8px}
+.kp .eq div{display:flex;flex-direction:column;gap:2px}
+.kp .eq b{font-size:20px;font-weight:500;letter-spacing:-.02em;line-height:1}
+.kp .eq small{font-size:11px;color:rgba(255,255,255,.72)}
+.kp .eq em{font-style:normal;font-size:18px;color:rgba(255,255,255,.7);padding-bottom:14px}
+.an{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:20px;background:linear-gradient(160deg,#FBF1D3,#F8E7BC);font-size:14px;line-height:1.55;color:var(--ink)}
+.an .ic{width:32px;height:32px;background:rgba(255,255,255,.75);color:var(--sand-i)}
+.an .ic svg{width:16px;height:16px}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.msg.them b{font-weight:600}
+.sug{width:100%;border:0;text-align:left;min-height:56px}
+.sug.s2{background:linear-gradient(90deg,#D3EAE5,#DDEFEA)}
+.composer{margin:0 20px 22px}
+.composer .mic{width:40px;height:40px;border:0;border-radius:20px;background:transparent;color:var(--ink2);display:flex;align-items:center;justify-content:center;flex:none}
+.composer .mic.on{background:var(--blush);color:var(--blush-i)}
+.composer .mic svg{width:19px;height:19px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="ChatCentre.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">{{teacher}}<small><a class="chg" href="ChooseMode.dc.html">{{mode}} · change</a></small></span>
+    <button class="ib" aria-label="More options"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle></svg></button>
+  </div>
+  <div class="page nonav" style="padding-top:8px">
+    <p class="when">{{scen}} · Today</p>
+    <div class="msg them">{{intro}} Mr. Raj, 58, has crushing chest pain spreading to his left arm. He's sweaty and anxious.<br><br>What do you want to know first?</div>
+    <div class="msg me">His vitals and an ECG?</div>
+    <div class="card ans">
+      <div class="hd">
+        <span class="tag">Patient case</span>
+        <div class="seg soft" role="group" aria-label="Answer length">
+          <button class="{{shortCls}}" onClick="{{setShort}}" aria-pressed="{{shortOn}}">Short</button>
+          <button class="{{longCls}}" onClick="{{setLong}}" aria-pressed="{{longOn}}">Detailed</button>
+        </div>
+      </div>
+      <p>Exactly. His ECG shows <b>ST elevation</b> in II, III and aVF.</p>
+      <div class="kp">
+        <span class="lb">Key point</span>
+        <div class="eq">
+          <div><b>ST ↑</b><small>II · III · aVF</small></div>
+          <em>=</em>
+          <div style="align-items:flex-end"><b>Injury now</b><small>time is muscle</small></div>
+        </div>
+      </div>
+      <div class="an">
+        <span class="ic rd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3 2"></path></svg></span>
+        <span>Think of a kinked garden hose. The longer it stays blocked, the more plants downstream wilt.</span>
+      </div>
+      <sc-if value="{{detailed}}" hint-placeholder-val="{{false}}">
+        <p style="font-size:13px;color:var(--ink3)">II, III and aVF look at the bottom of the heart, usually fed by the right coronary artery.</p>
+      </sc-if>
+      <p><b>Which medication would you give first?</b></p>
+      <div class="acts">
+        <button class="act m" onClick="{{save}}" aria-pressed="{{savedOn}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v16l-5-3.5L7 20z"></path></svg>{{saveLabel}}</button>
+        <button class="act s" onClick="{{quiz}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="15" rx="2.5"></rect><path d="M9 12l2 2 4-4"></path></svg>Quiz me</button>
+        <button class="act l" onClick="{{listen}}" aria-pressed="{{listenOn}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"></path><path d="M15.5 9a4 4 0 0 1 0 6"></path></svg>{{listenLabel}}</button>
+      </div>
+    </div>
+    <sc-for list="{{extra}}" as="m" hint-placeholder-count="0">
+      <div class="{{m.cls}}">{{m.t}}</div>
+    </sc-for>
+    <div class="stack" style="gap:10px">
+      <sc-for list="{{replies}}" as="r" hint-placeholder-count="3">
+        <button class="{{r.cls}}" onClick="{{r.send}}">{{r.t}}<span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+      </sc-for>
+    </div>
+  </div>
+  <div class="composer">
+    <button class="add" aria-label="Attach image or PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+    <label for="msg" class="sr">Message</label>
+    <input id="msg" value="{{draft}}" onChange="{{type}}" placeholder="{{ph}}">
+    <sc-if value="{{noDraft}}" hint-placeholder-val="{{true}}">
+      <button class="{{micCls}}" onClick="{{mic}}" aria-pressed="{{micOn}}" aria-label="Record voice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3.5" width="6" height="11" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"></path></svg></button>
+    </sc-if>
+    <button class="send" onClick="{{send}}" aria-label="{{sendLabel}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const LS = { get: (k, d) => { try { const v = localStorage.getItem('abhaya.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set: (k, v) => { try { localStorage.setItem('abhaya.' + k, JSON.stringify(v)); } catch (e) {} } };
+const scen = LS.get('scenario', 'Discuss a patient case'), mode = LS.get('mode', 'Story mode'), teacher = LS.get('teacher', 'Dr. Meera Nair');
+const INTRO = { 'Learn a topic': 'Hi Ananya. Let\'s learn acute MI through a real patient.', 'Viva and exam prep': 'Hi Ananya. Viva practice: I\'ll be your examiner today.', 'Clear a doubt': 'Hi Ananya. Let\'s clear this up with a quick example.', 'Surprise me': 'Hi Ananya. Here\'s a surprise case for you.' };
+const intro = INTRO[scen] || 'Hi Ananya.';
+const extra = this.state?.extra ?? [];
+const draft = this.state?.draft ?? '';
+const detailed = this.state?.detailed ?? false;
+const saved = this.state?.saved ?? false;
+const listening = this.state?.listening ?? false;
+const rec = this.state?.rec ?? false;
+const say = (t) => {
+if (!t.trim()) return;
+const reply = /aspirin/i.test(t) ? 'Yes! Aspirin first. It stops platelets clumping so the clot doesn’t grow. What would you monitor next?' : 'Good thinking. The first-line drug stops platelets clumping. Which one is that?';
+this.setState({ extra: [...extra, { cls: 'msg me', t }, { cls: 'msg them', t: reply }], draft: '', rec: false });
+};
+return {
+scen, mode, teacher, intro,
+extra, draft, detailed,
+hasDraft: !!draft, noDraft: !draft,
+sendLabel: draft ? 'Send' : 'Type a message to send',
+ph: rec ? 'Listening…' : 'Type your answer…',
+type: (e) => this.setState({ draft: e.target.value }),
+send: () => say(draft),
+mic: () => this.setState({ rec: !rec }),
+micOn: rec ? 'true' : 'false',
+micCls: rec ? 'mic on' : 'mic',
+shortCls: detailed ? '' : 'on', longCls: detailed ? 'on' : '',
+shortOn: detailed ? 'false' : 'true', longOn: detailed ? 'true' : 'false',
+setShort: () => this.setState({ detailed: false }),
+setLong: () => this.setState({ detailed: true }),
+save: () => this.setState({ saved: !saved }),
+savedOn: saved ? 'true' : 'false', saveLabel: saved ? 'Saved' : 'Save note',
+quiz: () => say('Quiz me on this'),
+listen: () => this.setState({ listening: !listening }),
+listenOn: listening ? 'true' : 'false', listenLabel: listening ? 'Stop' : 'Listen',
+replies: ['Aspirin','Morphine','Give me a hint'].map((t, i) => ({ t, cls: i === 1 ? 'sug s2' : 'sug', send: () => say(t) }))
+};
+}
+}
+</script>
+</body>
+</html>

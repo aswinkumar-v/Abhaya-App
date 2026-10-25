@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Notes Buddy</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.who{flex:1;min-width:0;display:flex;align-items:center;gap:12px}
+.filt{display:flex;gap:12px}
+.filt .field{flex:1;min-width:0}
+.filt .field select{width:100%}
+.cr{display:flex;flex-direction:column;gap:16px;min-height:168px}
+.cr .art{position:absolute;right:14px;top:18px;width:96px;height:96px;color:rgba(200,240,230,.75)}
+.cr .t{margin:0;max-width:200px;font-size:18px;font-weight:600;letter-spacing:-.02em;line-height:1.25}
+.cr .pr{display:flex;align-items:center;gap:14px;margin-top:auto}
+.cr .pr .bar{flex:1;max-width:180px;height:6px;background:rgba(255,255,255,.22)}
+.cr .pr .bar i{background:#BFE8DD}
+.cr .pr b{font-size:14px;font-weight:600}
+.subj{transition:transform .2s var(--ease)}
+.subj{gap:10px;min-height:136px}
+.subj b{padding-right:0;font-size:15px;line-height:1.25}
+.subj .si{position:relative;order:-1;width:36px;height:36px;border:0;background:rgba(255,255,255,.2);border-radius:12px}
+.subj .si svg{width:18px;height:18px}
+.subj .pl{margin-top:auto}
+.subj:active{transform:scale(.98)}
+.subj .si{display:flex;align-items:center;justify-content:center;z-index:1}
+.cas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ca{position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(18,48,46,.05),0 10px 22px -12px rgba(18,48,46,.24)}
+.ca::after{content:"";position:absolute;right:-22px;bottom:-30px;width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,.35)}
+.ca > *{position:relative;z-index:1}
+.ca{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:12px;border-radius:16px;font-size:12px;font-weight:600;color:var(--ink);background:linear-gradient(160deg,#E3F2EE,#D3EAE4)}
+.ca:nth-child(2){background:linear-gradient(160deg,#EEEBFA,#E0DAF4)}.ca:nth-child(3){background:linear-gradient(160deg,#FCF2D8,#F6E6B8)}
+.ca i{width:36px;height:36px;border-radius:12px;background:rgba(255,255,255,.92);box-shadow:0 4px 10px rgba(18,48,46,.08);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .2s var(--ease)}
+.ca i svg{width:18px;height:18px}
+.ca:active i{transform:scale(.94)}
+.up{border:1.5px dashed #8FBFB3!important;background:linear-gradient(90deg,#F1F8F6,#E8F4F0);box-shadow:none}
+.sv{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;min-height:150px;padding:16px;padding-top:20px}
+.sv::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#4DB39E,#BFE8DD)}
+.sv.pk::before{background:linear-gradient(90deg,#E8957A,#F6CDBB)}
+.sv .sf{margin-top:auto;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--ink3)}
+.sv .sf i{width:28px;height:28px;border-radius:14px;background:var(--track);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.sv .sf svg{width:14px;height:14px}
+.sv .row{justify-content:space-between}
+.sv .bm{width:18px;height:18px;color:var(--ink3)}
+.sv p{margin:0;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:-.005em}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="Home.dc.html" aria-label="Back to Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Notes Buddy<small>Your study library</small></span>
+    <a class="ib" href="ActivityHistory.dc.html" aria-label="Activity history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg></a>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Let's learn<span>anything with ease</span></h1>
+
+    <div class="search">
+      <label class="in" for="q">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>
+        <span class="sr">Search</span>
+        <input id="q" type="search" placeholder="Search topics, notes, papers" value="{{q}}" onChange="{{type}}">
+      </label>
+      <button class="fb" onClick="{{toggleFilt}}" aria-expanded="{{filtOpen}}" aria-controls="filters" aria-label="Filters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"></path><circle cx="15" cy="7" r="2"></circle><circle cx="9" cy="17" r="2"></circle></svg></button>
+    </div>
+
+    <sc-if value="{{showFilt}}" hint-placeholder-val="{{false}}">
+      <div class="card filt" id="filters">
+        <div class="field"><label for="sm">Semester</label><select id="sm" value="{{semV}}" onChange="{{pickSemSel}}"><sc-for list="{{semOpts}}" as="o" hint-placeholder-count="4"><option value="{{o.v}}">{{o.n}}</option></sc-for></select></div>
+        <div class="field" style="flex:1.5"><label for="sb">Subject</label><select id="sb" value="{{subV}}" onChange="{{pickSub}}"><sc-for list="{{subOpts}}" as="o" hint-placeholder-count="4"><option value="{{o.v}}">{{o.v}}</option></sc-for></select></div>
+      </div>
+    </sc-if>
+
+    <div class="seg" role="group" aria-label="Semester">
+      <sc-for list="{{sems}}" as="s" hint-placeholder-count="4"><button class="{{s.cls}}" onClick="{{s.pick}}" aria-pressed="{{s.on}}">{{s.n}}</button></sc-for>
+    </div>
+
+    <a class="tealx cr" href="SubjectNotes.dc.html" aria-label="Continue reading Heart: chambers and valves, 60 percent read">
+      <svg class="art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"></path><path d="M12 7v5M9.5 12.5 12 12l2.5.5"></path></svg>
+      <span class="mu" style="position:relative">Continue reading · Anatomy</span>
+      <p class="t" style="position:relative">Heart: chambers and valves</p>
+      <span class="pr"><span class="bar"><i style="width:60%"></i></span><b>60%</b></span>
+    </a>
+
+    <div class="card stack" style="gap:14px">
+      <div class="row" style="justify-content:space-between"><h2 class="h3" style="font-size:18px;font-weight:500">My subjects</h2><span class="mu" style="font-size:13px">{{semLong}}</span></div>
+      <div class="grid2">
+        <sc-for list="{{subs}}" as="s" hint-placeholder-count="4">
+          <a class="{{s.cls}}" href="SubjectNotes.dc.html" aria-label="{{s.aria}}">
+            <b>{{s.n}}</b>
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg></span>
+            <span class="pl">{{s.p}}</span>
+          </a>
+        </sc-for>
+      </div>
+      <sc-if value="{{noSubs}}" hint-placeholder-val="{{false}}"><p class="mu" style="text-align:center;padding:8px 0">No subjects match "{{q}}".</p></sc-if>
+      <div class="cas">
+        <a class="ca" href="SubjectNotes.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1-4L15.5 5.5a2.1 2.1 0 0 1 3 3l-10 10z"></path></svg></i>Smart notes</a>
+        <a class="ca" href="SubjectNotes.dc.html"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4.5c.45 3.6 2.9 6.05 6.5 6.5-3.6.45-6.05 2.9-6.5 6.5-.45-3.6-2.9-6.05-6.5-6.5 3.6-.45 6.05-2.9 6.5-6.5z"></path></svg></i>AI summaries</a>
+        <a class="ca" href="Flashcards.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"></path><path d="M4.5 4.5v4h4"></path></svg></i>Revision</a>
+      </div>
+    </div>
+
+    <button class="li up">
+      <span class="ic c-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.5v-11M7.5 9 12 4.5 16.5 9M4.5 19.5h15"></path></svg></span>
+      <span class="tx"><b>Add your own notes</b><span>PDF, photo or scan</span></span>
+    </button>
+
+    <div class="sec"><h2>Study tools</h2></div>
+    <div class="stack">
+      <sc-for list="{{tools}}" as="t" hint-placeholder-count="5">
+        <a class="{{t.cls}}" href="{{t.href}}">
+          <span class="wb" style="{{t.ist}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{t.icon}}"></path></svg></span>
+          <span class="tx"><b>{{t.n}}</b><span>{{t.s}}</span></span>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </a>
+      </sc-for>
+      <sc-if value="{{noTools}}" hint-placeholder-val="{{false}}"><p class="mu" style="text-align:center;padding:8px 0">No study tools match "{{q}}".</p></sc-if>
+    </div>
+
+    <div class="sec"><h2>Saved answers</h2><a href="ActivityHistory.dc.html">See all</a></div>
+    <div class="grid2">
+      <a class="card sv" href="Chat.dc.html">
+        <span class="row"><span class="tag">Physiology</span><svg class="bm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h10a.5.5 0 0 1 .5.5V20L12 16.5 6.5 20V4.5A.5.5 0 0 1 7 4z"></path></svg></span>
+        <p>What is cardiac output, explained with cricket?</p>
+        <span class="sf">Saved 2 days ago<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></i></span>
+      </a>
+      <a class="card sv pk" href="Chat.dc.html">
+        <span class="row"><span class="tag p">Microbiology</span><svg class="bm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h10a.5.5 0 0 1 .5.5V20L12 16.5 6.5 20V4.5A.5.5 0 0 1 7 4z"></path></svg></span>
+        <p>Autoclave vs hot air oven, as a short story</p>
+        <span class="sf">Saved last week<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></i></span>
+      </a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const sem = this.state?.sem ?? 3;
+const q = this.state?.q ?? '';
+const open = this.state?.open ?? false;
+const I = {
+  heart: 'M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z',
+  pulse: 'M3 12h4l2-5 3 10 2-5h7',
+  people: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M16 5.5a3 3 0 0 1 0 5.5M17.5 14.5c1.6.5 2.7 2 3 4.5',
+  mind: 'M9 20v-3H7a2 2 0 0 1-2-2v-3l-1.5-.5L5 9a7 7 0 0 1 14 1c0 2.5-1 4-2.5 5v5',
+  pill: 'M10.5 20a4.6 4.6 0 0 1-6.5-6.5l9.5-9.5a4.6 4.6 0 0 1 6.5 6.5zM8.75 8.75l6.5 6.5',
+  flask: 'M9.5 3.5h5M10.5 3.5v6L5 19a1 1 0 0 0 .9 1.5h12.2A1 1 0 0 0 19 19l-5.5-9.5v-6M7.5 15h9',
+  micro: 'M12 4.5a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15zM10 10h.01M14.5 9.5h.01M13 14h.01M9.5 14.5h.01',
+  apple: 'M12 7.5c-1-2-3-2.5-4.5-2M12 7.5c3-1.5 7 0 7 5S16 20.5 14 20.5c-1 0-1.5-.5-2-.5s-1 .5-2 .5c-2 0-5-3-5-8s4-6.5 7-5z',
+  clip: 'M8.5 4.5h7v3h-7zM7 6H5.5v14.5h13V6H17M9 13.5l2 2 4-4',
+  shield: 'M12 3.5l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9v-5zM9 12l2 2 4-4'
+};
+const S = {
+  1: [['Anatomy',62,13,21,I.heart],['Physiology',48,10,21,I.pulse],['Sociology',70,12,17,I.people],['Psychology',35,7,20,I.mind]],
+  2: [['Microbiology',40,8,20,I.micro],['Sociology',67,12,18,I.people],['Psychology',23,5,22,I.mind],['Anatomy',63,15,24,I.heart]],
+  3: [['Anatomy & Physiology',60,12,20,I.heart],['Pharmacology',42,8,19,I.pill],['Pathology',28,5,18,I.flask],['Adult health',51,11,22,I.clip]],
+  4: [['Pharmacology II',18,3,17,I.pill],['Pathology II',10,2,16,I.flask],['Nutrition',35,6,17,I.apple],['Professionalism',22,4,18,I.shield]]
+};
+const ql = q.trim().toLowerCase();
+const all = S[sem];
+const subV = all.some(s => s[0] === this.state?.sub) ? this.state.sub : all[0][0];
+const subs = all.map((s, k) => ({ s, k })).filter(({ s }) => !ql || s[0].toLowerCase().includes(ql)).map(({ s: [n, p, d, t, icon], k }) => ({
+  n, icon, p: p + '%  ·  ' + d + '/' + t, cls: 'subj t' + (k + 1), aria: n + ', ' + p + ' percent, ' + d + ' of ' + t + ' topics'
+}));
+const tools = [
+  ['AI Question Predictor', '20 likely exam questions', 'QuestionPredictor.dc.html', 'li mint', 'M12 4.5c.45 3.6 2.9 6.05 6.5 6.5-3.6.45-6.05 2.9-6.5 6.5-.45-3.6-2.9-6.05-6.5-6.5 3.6-.45 6.05-2.9 6.5-6.5z', 'color:var(--teal)'],
+  ['Past papers', '6 papers, 2023 to 2024', 'PastPapers.dc.html', 'li sky', 'M7 3.5h7l4 4V20.5H6.5V3.5zM14 3.5V8h4', 'color:var(--sky-i)'],
+  ['Flashcards', '48 cards, 12 due today', 'Flashcards.dc.html', 'li peach', 'M3.5 7.5h13v12h-13zM7.5 4.5h11a2 2 0 0 1 2 2v9.5', 'color:var(--blush-i)'],
+  ['Subject notes', 'Short notes, stories, explainers', 'SubjectNotes.dc.html', 'li lilac', 'M4.5 19.5l1-4L15.5 5.5a2.1 2.1 0 0 1 3 3l-10 10z', 'color:var(--lilac-i)'],
+  ['Activity history', 'Everything you studied here', 'ActivityHistory.dc.html', 'li sand', 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM12 7.5V12l3 2', 'color:var(--sand-i)']
+].filter(t => !ql || (t[0] + ' ' + t[1]).toLowerCase().includes(ql)).map(([n, s, href, cls, icon, ist]) => ({ n, s, href, cls, icon, ist }));
+const setSem = n => this.setState({ sem: n, sub: undefined });
+return {
+  q,
+  semLabel: 'Semester ' + sem,
+  semLong: 'Semester ' + sem,
+  semV: String(sem),
+  subV,
+  filtOpen: open ? 'true' : 'false',
+  showFilt: open,
+  toggleFilt: () => this.setState({ open: !open }),
+  type: e => this.setState({ q: e.target.value }),
+  pickSemSel: e => setSem(Number(e.target.value)),
+  pickSub: e => this.setState({ sub: e.target.value }),
+  semOpts: [1, 2, 3, 4].map(n => ({ v: String(n), n: 'Semester ' + n })),
+  subOpts: all.map(s => ({ v: s[0] })),
+  sems: [1, 2, 3, 4].map(n => ({ n: 'Sem ' + n, cls: n === sem ? 'on' : '', on: n === sem ? 'true' : 'false', pick: () => setSem(n) })),
+  subs,
+  noSubs: subs.length === 0,
+  tools,
+  noTools: tools.length === 0
+};
+}
+}
+</script>
+</body>
+</html>

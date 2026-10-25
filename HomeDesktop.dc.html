@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.desk{width:1280px;height:800px;display:grid;grid-template-columns:232px minmax(0,1fr);gap:24px;padding:20px;box-sizing:border-box;overflow:hidden;font-family:'Figtree',system-ui,sans-serif;color:var(--ink);
+  background:#FFFFFF}
+.side{display:flex;flex-direction:column;gap:6px;padding:20px 14px;border-radius:30px;background:#F6F8F7;border:1px solid #EEF2F1}
+.brand{display:flex;align-items:center;gap:12px;padding:4px 8px 22px}
+.brand i{width:36px;height:36px;border-radius:18px;flex:none;background:radial-gradient(circle at 35% 30%,#FFFFFF 0%,#D5EFE6 25%,#B7E2D4 50%,#F2C7AE 78%,#C8C6F0 100%);box-shadow:0 6px 16px rgba(120,170,160,.35)}
+.brand b{display:block;font-size:16px;font-weight:600;letter-spacing:-.01em}
+.brand span{font-size:12px;color:var(--ink3)}
+.nv{display:flex;align-items:center;gap:12px;height:48px;padding:0 8px;border-radius:24px;font-size:14px;font-weight:500;color:var(--ink2);transition:background .25s var(--ease),color .25s}
+.nv i{width:32px;height:32px;border-radius:16px;flex:none;display:flex;align-items:center;justify-content:center}
+.nv svg{width:20px;height:20px}
+.nv:hover{background:var(--mint2);color:var(--ink)}
+.nv.on{background:var(--mint);color:var(--ink);font-weight:700}
+.nv.ai{color:var(--ink);font-weight:600}
+.nv.ai i{color:#fff;background:radial-gradient(circle at 35% 28%,#5CC2B2 0%,#2A8A7E 45%,#14564F 100%);box-shadow:0 0 0 3px #fff,0 6px 14px rgba(30,107,99,.3)}
+.nv.ai svg{width:17px;height:17px}
+.sfoot{margin-top:auto;padding:16px;border-radius:22px;background:linear-gradient(160deg,#D9EFE9,#C6E6DD);display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--ink2)}
+.sfoot b{font-size:15px;font-weight:600;color:var(--ink)}
+.sfoot .bar{background:rgba(255,255,255,.7)}
+.main{overflow-y:auto;padding:14px 4px 8px;display:flex;flex-direction:column;gap:20px;scrollbar-width:none}
+.main::-webkit-scrollbar{display:none}
+.hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.hdr .hl{font-size:26px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 320px;gap:20px;align-items:start}
+.col{display:flex;flex-direction:column;gap:14px;animation:rise .5s var(--ease) both}
+.col:nth-child(2){animation-delay:.06s}.col:nth-child(3){animation-delay:.12s}
+.streak{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:22px;background:#fff;box-shadow:0 6px 18px rgba(18,48,46,.08);font-size:15px;font-weight:700;color:#7A5A10}
+.streak svg{width:17px;height:17px;color:#C9822B}
+.dot{position:absolute;top:10px;right:11px;width:9px;height:9px;border-radius:5px;background:#E0674A;border:2px solid #fff}
+.sec{margin-top:0}
+</style>
+</helmet>
+<div class="desk">
+  <nav class="side" aria-label="Main">
+    <div class="brand"><i aria-hidden="true"></i><div><b>Abhaya</b><span>Nursing buddy</span></div></div>
+    <a class="nv on" href="Home.dc.html" aria-current="page"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 4l8.5 6.5"></path><path d="M5.5 9v10a1 1 0 0 0 1 1H10v-5.5h4V20h3.5a1 1 0 0 0 1-1V9"></path></svg></i>Home</a>
+    <a class="nv" href="ChatCentre.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-11 6.6L4.5 19.5l1.3-4.2A7.5 7.5 0 1 1 20 11.5z"></path><path d="M9 11.5h.01M12.5 11.5h.01M16 11.5h.01"></path></svg></i>Chat</a>
+    <a class="nv ai" href="Wellbeing.dc.html"><i><span class="fuss xs calm still"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz6B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz6F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz6E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz6T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz6C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz6F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz6B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz6B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz6T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz6F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz6F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz6E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz6C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz6C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span></i>Wellbeing</a>
+    <a class="nv" href="ExamSetup.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 4.5V3.5h6v1M9 13l2 2 4-4"></path></svg></i>Exams</a>
+    <a class="nv" href="Profile.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.3-3.3 3.9-5 7-5s5.7 1.7 7 5"></path></svg></i>Profile</a>
+    <div class="sfoot"><b>7 day streak</b><span>Keep the rhythm going today.</span><div class="bar"><i style="width:70%"></i></div></div>
+  </nav>
+  <main class="main">
+    <div class="hdr">
+      <div class="stack" style="gap:14px">
+        <h1 class="hl">Good morning, Ananya<span>here's your study day</span></h1>
+        <div class="row" style="gap:16px">
+          <div class="count"><b>{{doneN}}</b><b>04</b><span>Tasks done<br>today</span></div>
+          <a class="ib" href="TodaysPlan.dc.html" aria-label="Today's plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></a>
+        </div>
+      </div>
+      <div class="row" style="gap:10px;align-self:flex-start">
+        <a class="streak" href="Progress.dc.html" aria-label="7 day streak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a6 6 0 0 0 6-6c0-4-3-6-4-9-1.5 2-2 3.5-2 5-1-.5-2-1.5-2.5-3C8 10 6 12 6 15a6 6 0 0 0 6 6z"></path></svg>7</a>
+        <a class="ib" href="Notifications.dc.html" aria-label="Notifications, 2 new" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.5 1.5H5z"></path><path d="M10 20.5h4"></path></svg><span class="dot"></span></a>
+        <a href="Profile.dc.html" class="row" style="gap:12px;margin-left:6px" aria-label="Profile">
+          <span class="av" aria-hidden="true" style="overflow:hidden;background:#F6D8C6"><svg class="avsvg" width="100%" height="100%" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="davb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#BFEBDD"></stop><stop offset=".55" stop-color="#E7F1EC"></stop><stop offset="1" stop-color="#F7D6C4"></stop></linearGradient><linearGradient id="davh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2A2E"></stop><stop offset="1" stop-color="#21171A"></stop></linearGradient><clipPath id="davc"><circle cx="32" cy="32" r="32"></circle></clipPath></defs>
+<g clip-path="url(#davc)"><rect width="64" height="64" fill="url(#davb)"></rect>
+<path d="M13 44c-2-16 6-29 19-29s21 13 19 29c-1 6-5 10-9 12H22c-4-2-8-6-9-12z" fill="url(#davh)"></path>
+<path d="M10 66c2-10 10-15 22-15s20 5 22 15z" fill="#FFFFFF"></path>
+<path d="M10 66c2-10 10-15 22-15s20 5 22 15z" fill="#1E6B63" opacity=".9"></path>
+<path d="M26 51l6 6 6-6" fill="none" stroke="#E9FBF5" stroke-width="1.6" stroke-linejoin="round"></path>
+<rect x="28" y="42" width="8" height="10" rx="3.5" fill="#D99E7E"></rect>
+<ellipse cx="32" cy="34" rx="11" ry="12" fill="#EDB898"></ellipse>
+<path d="M20.5 33c0-9 5-13.5 11.5-13.5S43.5 24 43.5 33c-3-4-7-6.5-11.5-7-4 .5-8.5 3-11.5 7z" fill="url(#davh)"></path>
+<path d="M22 21.5c3-4 7-5.5 10-5.5s7 1.5 10 5.5l-1.5 3c-2.5-2-5.5-3-8.5-3s-6 1-8.5 3z" fill="#FFFFFF"></path>
+<path d="M32 18.3v4M30 20.3h4" stroke="#E0674A" stroke-width="1.4" stroke-linecap="round"></path>
+<circle cx="27.5" cy="34.5" r="1.5" fill="#2B1E1E"></circle><circle cx="36.5" cy="34.5" r="1.5" fill="#2B1E1E"></circle>
+<circle cx="28" cy="34" r=".5" fill="#fff"></circle><circle cx="37" cy="34" r=".5" fill="#fff"></circle>
+<circle cx="25.2" cy="38.4" r="2" fill="#F08A84" opacity=".4"></circle><circle cx="38.8" cy="38.4" r="2" fill="#F08A84" opacity=".4"></circle>
+<path d="M29.5 39.2q2.5 2.4 5 0" fill="none" stroke="#9E4E47" stroke-width="1.3" stroke-linecap="round"></path>
+</g></svg></span>
+          <span class="hello"><b>Ananya</b><span>B.Sc Nursing · Sem 3</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <a class="hero" href="ChatCentre.dc.html">
+          <span class="blob glow" aria-hidden="true"></span>
+          <div class="in">
+            <div><p class="h3" style="font-size:18px;font-weight:500;letter-spacing:-.02em">Abhaya Tutor</p><p class="mu" style="color:var(--ink2);margin-top:2px">Your 24/7 nursing teacher</p></div>
+            <div class="split"><div><span>Last topic</span><b>Cardiac cycle</b></div><div><span>Today</span><b>24 min learnt</b></div></div>
+          </div>
+          <div class="foot">Start today's session<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
+        </a>
+        <a class="grid3" href="Progress.dc.html">
+          <div class="stt y"><span class="lb">Exam ready</span><span class="vl">78%</span></div>
+          <div class="stt s"><span class="lb">Overall progress</span><span class="vl">68%</span></div>
+          <div class="stt m"><span class="lb">This week</span><span class="vl">3.3h</span></div>
+        </a>
+        <div class="grid4" style="margin-top:4px">
+          <a class="qa" href="NotesBuddy.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10.5a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5z"></path><path d="M14 3.5V8h4M9 12.5h6M9 16h4"></path></svg></i>Notes Buddy</a>
+          <a class="qa" href="DiagramTrainer.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><circle cx="17" cy="7" r="3.5"></circle><path d="M7 14l3.5 6.5h-7zM14 14h6.5v6.5H14z"></path></svg></i>Diagrams</a>
+          <a class="qa" href="Scenarios.dc.html"><i style="color:#C0573E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7"></path></svg></i>Cases</a>
+          <a class="qa" href="ExamSetup.dc.html"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 4.5V3.5h6v1M9 13l2 2 4-4"></path></svg></i>Mock test</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sec"><h2>Today's routine</h2><span>Tap to tick off</span></div>
+        <div class="grid2">
+          <sc-for list="{{tasks}}" as="t" hint-placeholder-count="4">
+            <button class="{{t.cls}}" onClick="{{t.tog}}" aria-pressed="{{t.on}}">
+              <span class="ri" style="{{t.ist}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{t.icon}}"></path></svg></span>
+              <sc-if value="{{t.done}}" hint-placeholder-val="{{false}}"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></sc-if>
+              <b>{{t.n}}</b><span>{{t.s}}</span><span class="v">{{t.v}}</span>
+            </button>
+          </sc-for>
+        </div>
+        <a class="note" href="SubjectNotes.dc.html">
+          <span class="nb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg></span>
+          <span style="flex:1"><b>Revise ECG changes in MI</b>It came up in 3 of your last 5 quizzes.</span>
+        </a>
+      </div>
+      <div class="col">
+        <div class="card stack" style="gap:14px">
+          <div class="row" style="justify-content:space-between"><p class="h3" style="font-size:18px;font-weight:500">How are you feeling?</p><a class="link" href="Wellbeing.dc.html" style="color:var(--ink)">Wellbeing</a></div>
+          <div class="moodwrap"><div class="moods">
+            <sc-for list="{{moods}}" as="m" hint-placeholder-count="5">
+              <button class="{{m.cls}}" onClick="{{m.pick}}" aria-pressed="{{m.on}}"><svg class="{{m.anim}}" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="{{m.c}}"></circle><path d="{{m.eyes}}" stroke="#12302E" stroke-width="{{m.ew}}" fill="none" stroke-linecap="round" stroke-linejoin="round"></path><path d="{{m.mouth}}" stroke="#12302E" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{m.n}}</button>
+            </sc-for>
+          </div></div>
+          <p class="body" style="font-size:14px;color:var(--ink)">{{moodMsg}}</p>
+        </div>
+        <div class="sec"><h2>Up next</h2></div>
+        <a class="li peach" href="ScenarioDetails.dc.html">
+          <span class="wb" style="color:var(--blush-i)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7"></path></svg></span>
+          <span class="tx"><b>Chest pain case</b><span>8 min · You're on track</span></span>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </a>
+        <a class="li mint" href="Breathing.dc.html">
+          <span class="wb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9h10.5a3 3 0 1 0-3-3M3.5 13h14a3 3 0 1 1-3 3M3.5 17h6"></path></svg></span>
+          <span class="tx"><b>Two-minute breather</b><span>Before your next session</span></span>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+renderVals() {
+const done = this.state?.done ?? { 0: true, 3: true };
+const mood = this.state?.mood ?? 'Good';
+const tasks = [
+  ['Revise', 'Heart valves', '15min', 'M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z', 'mint', 'background:#fff;color:var(--teal)'],
+  ['Flashcards', 'Cardiac cycle', '12', 'M3.5 7h13v13h-13zM7.5 4h12.5v12.5', 'lilac', 'background:var(--lilac);color:var(--lilac-i)'],
+  ['MCQs', 'Cardiology', '10Q', 'M5 4.5h14v16H5zM9 13l2 2 4-4', 'sky', 'background:var(--sky);color:var(--sky-i)'],
+  ['Case', 'Chest pain', '20min', 'M3 12h4l2-5 3 10 2-5h7', 'peach', 'background:#fff;color:var(--blush-i)']
+];
+const DOT = 'M12 14.5h.01M20 14.5h.01', ARC = 'M10.5 14.5q1.5-1.6 3 0M18.5 14.5q1.5-1.6 3 0';
+const moods = [
+  ['Great','#BFE6DA',ARC,1.8,'M11 19q5 5 10 0','Lovely. Ride the energy into today\'s case.'],
+  ['Good','#CFEBC9',DOT,2.6,'M12 19.5q4 3 8 0','Nice. You\'re halfway through today\'s routine.'],
+  ['Okay','#F6E3A6',DOT,2.6,'M12.5 20.5h7','Steady is fine. Start with the shortest task.'],
+  ['Stressed','#F4C6B5',DOT,2.6,'M12 22q4-3 8 0','Take a 1 minute breather first. It helps.'],
+  ['Low','#DCD7F2',DOT,2.6,'M12 22q4-3 8 0','Be gentle with yourself. One small task is enough.']
+];
+const n = Object.values(done).filter(Boolean).length;
+return {
+  doneN: '0' + n,
+  tasks: tasks.map(([nm, s, v, icon, col, ist], i) => {
+    const d = !!done[i];
+    return { n: nm, s, v, icon, ist, done: d, on: d ? 'true' : 'false', cls: d ? 'rt done ' + col : 'rt', tog: () => this.setState({ done: { ...done, [i]: !d } }) };
+  }),
+  moods: moods.map(([nm, c, eyes, ew, mouth]) => ({ n: nm, c, eyes, ew, mouth, on: nm === mood ? 'true' : 'false', anim: nm === mood ? 'float' : '', cls: nm === mood ? 'mood on' : 'mood', pick: () => this.setState({ mood: nm }) })),
+  moodMsg: moods.find(m => m[0] === mood)[5]
+};
+}
+}
+</script>
+</body>
+</html>

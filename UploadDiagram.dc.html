@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Upload diagram</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.drop{width:100%;padding:8px;border:0;background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);transition:transform .2s var(--ease)}
+.drop:active{transform:scale(.99)}
+.drop .zone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;height:196px;border-radius:18px;border:1.5px dashed #BFD8D1;background:linear-gradient(180deg,#EEF7F4,#F8FBFA)}
+.drop .ic{width:56px;height:56px;border-radius:28px;background:#fff;color:var(--teal);box-shadow:var(--shadow)}
+.drop .ic svg{width:22px;height:22px}
+.drop b{font-size:15px;font-weight:600}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="DiagramTrainer.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Upload<small>Diagram trainer</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="head"><h1 class="title">Upload a diagram</h1><p class="sub">From your textbook, notes or the board.</p></div>
+    <button class="drop" aria-label="Choose an image to upload">
+      <span class="zone">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.5V4.5M7.5 9 12 4.5 16.5 9M4.5 19.5h15"></path></svg></span>
+        <b>Tap to choose an image</b>
+        <span class="mu">JPG, PNG or WEBP · up to 10 MB</span>
+      </span>
+    </button>
+    <div class="grid2">
+      <button class="btn ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3l1.8-2.5h6.4L17 8.5h3V19H4z"></path><circle cx="12" cy="13.5" r="3.2"></circle></svg>Take photo</button>
+      <button class="btn ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"></rect><path d="M3.5 16l5-5 4 4 3-3 5 5"></path></svg>Gallery</button>
+    </div>
+    <div class="card field" style="gap:10px"><label for="q">What should I explain? <span style="color:var(--ink3);font-weight:400">Optional</span></label><textarea id="q" placeholder="e.g. Blood flow through each chamber" style="min-height:104px"></textarea></div>
+    <a class="btn" href="DiagramResult.dc.html" style="margin-top:auto"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg>Explain this diagram</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

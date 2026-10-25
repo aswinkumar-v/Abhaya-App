@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scenario details</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.pbox{display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:13px;font-weight:500}
+.pbox span{display:flex;align-items:center;gap:10px}
+.pbox svg{width:16px;height:16px;opacity:.85;flex:none}
+.vt{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:18px;background:var(--track)}
+.vt b{font-size:18px;font-weight:500;letter-spacing:-.03em;line-height:1.1}
+.vt span{font-size:12px;color:var(--ink3)}
+.vt.hi{background:var(--bad-bg)}
+.vt.hi b{color:var(--bad)}
+.dl{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.dl li{display:flex;gap:10px;font-size:13px;line-height:1.45;color:var(--ink2)}
+.dl li::before{content:'';width:6px;height:6px;border-radius:3px;background:var(--teal2);margin-top:6px;flex:none}
+.ch{display:flex;align-items:center;gap:10px}
+.ch .ic{width:34px;height:34px;border-radius:12px}
+.ch .ic svg{width:16px;height:16px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="Scenarios.dc.html" aria-label="Back to cases"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Case brief<small>Cardiac · Intermediate</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="tealx stack" style="gap:16px">
+      <div class="row" style="justify-content:space-between">
+        <span class="gpill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg>AI-guided case</span>
+        <span class="mu">4 decisions · 8 min</span>
+      </div>
+      <h1 class="title" style="color:#fff">Acute myocardial infarction</h1>
+      <div class="pbox">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.3-3.3 3.9-5 7-5s5.7 1.7 7 5"></path></svg>Mr. Raj, 58 · Male</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Emergency dept</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7.5V12l3 2"></path></svg>Arrived 11:40 pm</span>
+      </div>
+    </div>
+
+    <div class="card stack" style="gap:12px">
+      <p class="h3">Case summary</p>
+      <p class="body">Crushing chest pain for 40 min, spreading to the left arm. Sweating, nauseous, anxious.</p>
+      <div class="inset"><p class="mu"><b style="color:var(--ink)">History</b><br>Hypertension, type 2 diabetes, smoker (20 pack-years)</p></div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="row" style="justify-content:space-between"><p class="h3">Vital signs</p><span class="tag p">3 abnormal</span></div>
+      <div class="grid3">
+        <div class="vt hi"><b>112</b><span>Heart rate</span></div>
+        <div class="vt hi"><b>160/95</b><span>BP</span></div>
+        <div class="vt"><b>94%</b><span>SpO2, room air</span></div>
+        <div class="vt"><b>22</b><span>Resp. rate</span></div>
+        <div class="vt hi"><b>8/10</b><span>Pain</span></div>
+        <div class="vt"><b>36.9°</b><span>Temp</span></div>
+      </div>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="ch"><span class="ic c-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="6" rx="3" transform="rotate(-45 12 12)"></rect><path d="M9.2 9.2l5.6 5.6"></path></svg></span><p class="h3">Current medications</p></div>
+      <ul class="dl"><li>Metformin 500 mg OD</li><li>Amlodipine 5 mg OD</li></ul>
+    </div>
+
+    <div class="card stack" style="gap:14px">
+      <div class="ch"><span class="ic c-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r=".6"></circle></svg></span><p class="h3">You'll practise</p></div>
+      <ul class="dl"><li>Cardiac assessment priorities</li><li>First-line AMI drugs</li><li>Escalating deterioration</li></ul>
+    </div>
+
+    <a class="btn" href="ScenarioStep.dc.html" style="margin-top:6px">Start scenario<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

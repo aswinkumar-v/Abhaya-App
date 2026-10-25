@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Previous question papers</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.doc{font-size:11px;font-weight:700;letter-spacing:.04em}
+.group .li{padding:14px 16px}
+.solve{flex:none}
+</style>
+</helmet>
+<div class="app sand">
+  <div class="top">
+    <a class="ib" href="NotesBuddy.dc.html" aria-label="Back to Notes Buddy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Past papers<small>{{semLabel}}</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Previous papers<span>read one, or solve it with Abhaya</span></h1>
+    <div class="chips scroll" role="group" aria-label="Semester">
+      <sc-for list="{{sems}}" as="s" hint-placeholder-count="8"><button class="{{s.cls}}" onClick="{{s.pick}}" aria-pressed="{{s.on}}">{{s.n}}</button></sc-for>
+    </div>
+    <div class="sec"><h2>Anatomy &amp; Physiology</h2><span>3 papers</span></div>
+    <div class="group">
+      <sc-for list="{{papers}}" as="p" hint-placeholder-count="3">
+        <div class="li">
+          <span class="ic c-sand doc">PDF</span>
+          <span class="tx"><b>{{p.t}}</b><span>{{p.s}}</span></span>
+          <a class="act m solve" href="ChooseMode.dc.html">Solve</a>
+        </div>
+      </sc-for>
+    </div>
+    <div class="sec"><h2>Pharmacology</h2><span>2 papers</span></div>
+    <div class="group">
+      <div class="li">
+        <span class="ic c-sand doc">PDF</span>
+        <span class="tx"><b>University exam, 2024</b><span>75 marks · 3 hours</span></span>
+        <a class="act m solve" href="ChooseMode.dc.html">Solve</a>
+      </div>
+      <div class="li" style="opacity:.55" aria-disabled="true">
+        <span class="ic c-sand doc">PDF</span>
+        <span class="tx"><b>Model exam, 2023</b><span>Not available yet</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const sem = this.state?.sem ?? 3;
+return {
+semLabel: 'Semester ' + sem,
+sems: [1,2,3,4,5,6,7,8].map(n => ({ n: 'Sem ' + n, cls: n === sem ? 'chip on' : 'chip', on: n === sem ? 'true' : 'false', pick: () => this.setState({ sem: n }) })),
+papers: [['University exam, 2024','75 marks · 3 hours'],['University exam, 2023','75 marks · 3 hours'],['Internal assessment, 2023','25 marks · 1 hour']].map(([t, s]) => ({ t, s }))
+};
+}
+}
+</script>
+</body>
+</html>

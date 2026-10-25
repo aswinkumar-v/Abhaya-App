@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Flash cards</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.dots{display:flex;gap:6px}
+.dots span{flex:1;height:6px;border-radius:3px;background:rgba(18,48,46,.1);transition:background .3s var(--ease)}
+.dots span.on{background:var(--deep)}
+.fc{position:relative;overflow:hidden;flex:1;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:24px;border-radius:var(--r-lg);border:0;text-align:left;box-shadow:var(--shadow2);transition:transform .2s var(--ease)}
+.fc.wt{background:#fff;color:var(--ink)}
+.fc:active{transform:scale(.985)}
+.fc.tealx{box-shadow:0 16px 36px rgba(26,86,80,.3)}
+.fc .q{position:relative;font-size:19px;font-weight:500;line-height:1.3;letter-spacing:-.02em}
+.fc .tag{position:relative;align-self:flex-start}
+.fc.tealx .tag{background:rgba(255,255,255,.16);color:#fff}
+.fc .hint{position:relative;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;height:36px;padding:0 14px;border-radius:18px;background:var(--track);font-size:13px;font-weight:600;color:var(--ink2)}
+.fc.tealx .hint{background:rgba(255,255,255,.14);color:#fff}
+.fc .hint svg{width:15px;height:15px}
+</style>
+</helmet>
+<div class="app lilac">
+  <div class="top">
+    <a class="ib" href="NotesBuddy.dc.html" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></a>
+    <span class="ttl">Flashcards<small>Heart anatomy</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="row" style="justify-content:space-between">
+      <div class="count"><b>{{posS}}</b><b>{{totalS}}</b><span>Cards in<br>this deck</span></div>
+      <span class="pill">{{sideLabel}}</span>
+    </div>
+    <div class="dots" role="img" aria-label="{{progressLabel}}"><sc-for list="{{dots}}" as="d" hint-placeholder-count="5"><span class="{{d.cls}}"></span></sc-for></div>
+    <button class="{{cardCls}}" onClick="{{flip}}" aria-label="{{flipLabel}}">
+      <span class="tag l">{{side}}</span>
+      <span class="q">{{text}}</span>
+      <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"></path></svg>{{hint}}</span>
+    </button>
+    <div class="row" style="gap:12px">
+      <button class="btn ghost" onClick="{{again}}">Still learning</button>
+      <button class="btn ink" onClick="{{got}}">Got it</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const cards = [
+['Which chamber has the thickest wall?','The left ventricle. It pumps blood to the whole body.'],
+['Which valve sits between the left atrium and left ventricle?','The mitral (bicuspid) valve.'],
+['What carries oxygen-poor blood to the lungs?','The pulmonary artery.'],
+['What is the heart’s natural pacemaker?','The sinoatrial (SA) node.'],
+['Normal adult resting heart rate?','60 to 100 beats per minute.']
+];
+const i = this.state?.i ?? 0, f = this.state?.f ?? false;
+const next = () => this.setState({ i: (i + 1) % cards.length, f: false });
+const pad = n => (n < 10 ? '0' : '') + n;
+return {
+posS: pad(i + 1), totalS: pad(cards.length),
+progressLabel: 'Card ' + (i + 1) + ' of ' + cards.length,
+dots: cards.map((c, k) => ({ cls: k <= i ? 'on' : '' })),
+side: f ? 'Answer' : 'Question',
+sideLabel: f ? 'Answer side' : 'Question side',
+text: cards[i][f ? 1 : 0],
+hint: f ? 'Tap to see question' : 'Tap to reveal answer',
+flipLabel: f ? 'Show question' : 'Reveal answer',
+cardCls: f ? 'fc tealx' : 'fc wt',
+flip: () => this.setState({ f: !f }),
+again: next, got: next
+};
+}
+}
+</script>
+</body>
+</html>

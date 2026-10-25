@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Choose teaching mode</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.steps{display:flex;justify-content:center;gap:6px;margin-top:6px}
+.steps i{width:24px;height:5px;border-radius:3px;background:var(--teal)}
+.md{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:150px;padding:16px;border-radius:22px;background:#fff;border:2px solid transparent;box-shadow:var(--shadow);text-align:left;transition:all .2s var(--ease)}
+.md:active{transform:scale(.98)}
+.md.on{border-color:var(--deep)}
+.md .ic{width:40px;height:40px;font-size:13px;font-weight:600;margin-bottom:10px}
+.md b{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.md .d{font-size:12px;color:var(--ink3);line-height:1.4}
+.md .who{font-size:12px;font-weight:600;color:var(--teal);margin-top:auto;padding-top:8px}
+.md .radio{position:absolute;top:16px;right:16px}
+.forchip{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 6px 0 14px;border-radius:17px;background:var(--mint);font-size:13px;font-weight:600;color:var(--ink)}
+.forchip span{height:24px;padding:0 10px;border-radius:12px;background:#fff;font-size:12px;display:inline-flex;align-items:center;color:var(--teal)}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="{{backHref}}" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">New chat<span class="steps" role="img" aria-label="Step 2 of 2"><i></i><i></i></span></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">How should we<span>explain it?</span></h1>
+    <p class="sub" style="margin:-6px 0 4px">Pick a teacher. You can switch anytime in the chat.</p>
+    <a class="forchip" href="ChooseScenario.dc.html" aria-label="Chat type: {{scen}}. Change">{{scen}}<span>Change</span></a>
+    <div class="grid2" role="radiogroup" aria-label="Teaching mode">
+      <sc-for list="{{modes}}" as="m" hint-placeholder-count="6">
+        <button class="{{m.cls}}" onClick="{{m.pick}}" role="radio" aria-checked="{{m.on}}">
+          <span class="{{m.av}}">{{m.i}}</span>
+          <b>{{m.n}}</b><span class="d">{{m.d}}</span>
+          <span class="who">{{m.t}}</span>
+          <span class="radio"></span>
+        </button>
+      </sc-for>
+    </div>
+    <a class="btn" href="Chat.dc.html" onClick="{{go}}" style="margin-top:auto">Start chat<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const LS = { get: (k, d) => { try { const v = localStorage.getItem('abhaya.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set: (k, v) => { try { localStorage.setItem('abhaya.' + k, JSON.stringify(v)); } catch (e) {} } };
+const REF = (() => { try { return (document.referrer.split('/').pop() || '').split('?')[0].replace('.dc.html', ''); } catch (e) { return ''; } })();
+const CTX = { PastPapers: 'Clear a doubt', SubjectNotes: 'Learn a topic', DiagramResult: 'Learn a topic', ExamResult: 'Viva and exam prep', ScenarioComplete: 'Discuss a patient case', Home: 'Learn a topic' };
+const fromCtx = CTX[REF] ? REF : LS.get('from', '');
+const scen = CTX[REF] || LS.get('scenario', 'Discuss a patient case');
+const sel = this.state?.sel ?? LS.get('modeIdx', 0);
+const list = [
+['Story mode','Real-life stories','Dr. Meera Nair','MN','c-mint'],
+['Step by step','One idea at a time','Dr. Arjun Menon','AM','c-lilac'],
+['Quick notes','Brief key points','Dr. Priya Iyer','PI','c-blush'],
+['In depth','Deep understanding','Dr. Vikram Singh','VS','c-sky'],
+['Guided questions','I ask, you think','Dr. Kavya Reddy','KR','c-sand'],
+['Friendly chat','Relaxed and casual','Dr. Rohan Das','RD','c-sage']
+];
+return {
+scen, backHref: REF === 'Chat' ? 'Chat.dc.html' : fromCtx ? fromCtx + '.dc.html' : (REF === 'ChatCentre' ? 'ChatCentre.dc.html' : 'ChooseScenario.dc.html'),
+go: () => { LS.set('scenario', scen); LS.set('modeIdx', sel); LS.set('mode', list[sel][0]); LS.set('teacher', list[sel][2]); },
+modes: list.map(([n, d, t, i, c], k) => ({ n, d, t, i, av: 'ic rd ' + c, on: k === sel ? 'true' : 'false', cls: k === sel ? 'md on' : 'md', pick: () => this.setState({ sel: k }) })) };
+}
+}
+</script>
+</body>
+</html>

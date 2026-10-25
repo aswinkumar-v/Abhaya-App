@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Listener Chat</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.lorb{position:relative;width:108px;height:108px;margin:4px auto 0;display:flex;align-items:center;justify-content:center}
+.lorb::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 30% 30%,#F3B07F 0%,#F5C4A4 30%,#C9C8F2 62%,#9DB5F2 100%);filter:blur(8px);opacity:.85}
+.lorb svg{position:relative}
+.on-dot{display:inline-block;width:7px;height:7px;border-radius:4px;background:#3FB8A0;margin-right:5px;vertical-align:1px}
+.sug{width:100%}
+</style>
+</helmet>
+<div class="app lilac">
+  <div class="top">
+    <a class="ib" href="Wellbeing.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Talk to Fuss<small><span class="on-dot"></span>Private to you · 24/7</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav" style="padding-bottom:12px">
+    <div class="stack" style="align-items:center;gap:8px;text-align:center">
+      <div class="lorb glow">
+        <span class="fuss md calm listen" role="img" aria-label="Fuss listening"><svg class="fz-svg" viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="fz11B" gradientUnits="userSpaceOnUse" cx="78" cy="48" r="170"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".38" stop-color="#F1EEFA"></stop><stop offset=".72" stop-color="#D9D3F1"></stop><stop offset="1" stop-color="#BDB3E6"></stop></radialGradient><radialGradient id="fz11F" cx="45%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".55" stop-color="#E6E1F6"></stop><stop offset="1" stop-color="#C3B9EA"></stop></radialGradient><radialGradient id="fz11E"><stop offset="0" stop-color="#FFAE9C" stop-opacity=".95"></stop><stop offset=".6" stop-color="#FFC2B4" stop-opacity=".45"></stop><stop offset="1" stop-color="#FFC2B4" stop-opacity="0"></stop></radialGradient><radialGradient id="fz11T"><stop offset="0" stop-color="#8FDDEB" stop-opacity=".55"></stop><stop offset="1" stop-color="#8FDDEB" stop-opacity="0"></stop></radialGradient><radialGradient id="fz11C"><stop offset="0" stop-color="#FF9EA8" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF9EA8" stop-opacity="0"></stop></radialGradient></defs>
+<ellipse class="fz-shadow" cx="104" cy="188" rx="66" ry="7" fill="#9C92D6" opacity=".28"></ellipse>
+<g class="fz-body">
+<ellipse cx="150" cy="160" rx="27" ry="23" fill="url(#fz11F)"></ellipse>
+<ellipse cx="104" cy="142" rx="56" ry="42" fill="url(#fz11B)"></ellipse>
+<ellipse cx="104" cy="86" rx="68" ry="64" fill="url(#fz11B)"></ellipse>
+<ellipse cx="60" cy="122" rx="44" ry="50" fill="url(#fz11T)"></ellipse>
+<ellipse cx="58" cy="150" rx="20" ry="24" fill="url(#fz11F)"></ellipse>
+<ellipse cx="96" cy="166" rx="29" ry="23" fill="url(#fz11F)"></ellipse>
+<circle class="fz-ear" cx="56" cy="92" r="34" fill="url(#fz11E)"></circle>
+<circle class="fz-cheek" cx="118" cy="116" r="12" fill="url(#fz11C)"></circle><circle class="fz-cheek" cx="162" cy="113" r="10" fill="url(#fz11C)"></circle>
+<g class="fz-face" fill="none" stroke="#2B2547" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<g class="fz-f calm"><path d="M110 100q8 7 16 0M150 98q7 6 13 0"></path></g>
+<g class="fz-f happy"><path d="M110 103q8-9 16 0M150 101q7-8 13 0M132 114q5 6 11 0"></path></g>
+<g class="fz-f okay"><g class="fz-blink"><circle cx="118" cy="100" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="98" r="3" fill="#2B2547" stroke="none"></circle></g><path d="M133 116h9"></path></g>
+<g class="fz-f sad"><path d="M110 93l12-4M163 91l-11-4M132 121q5-5 11 0"></path><circle cx="118" cy="101" r="3.2" fill="#2B2547" stroke="none"></circle><circle cx="156" cy="99" r="3" fill="#2B2547" stroke="none"></circle><path class="fz-tear" d="M118 108q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+<g class="fz-f tired"><path d="M110 102h15M150 100h13M134 117q3 2 6 0"></path><text class="fz-z" x="168" y="70" fill="#9C92D6" stroke="none" font-size="16" font-weight="700" font-family="Figtree,sans-serif">z</text><text class="fz-z z2" x="178" y="56" fill="#B6AEE2" stroke="none" font-size="12" font-weight="700" font-family="Figtree,sans-serif">z</text></g>
+<g class="fz-f stressed"><path d="M112 96l10 5-10 5M161 94l-10 5 10 5M129 118q2.5-3 5 0t5 0t5 0"></path><path class="fz-sweat" d="M178 76q-4 7 0 9q4-2 0-9z" fill="#8FC9F0" stroke="none"></path></g>
+</g>
+</g>
+<g class="fz-wave" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"><path d="M18 92v4M24 89v10M30 84v20M36 78v32M42 72v44M48 80v28M54 86v16M60 90v8"></path></g>
+</svg></span>
+      </div>
+      <h1 class="title">I'm here to listen</h1>
+      <p class="sub" style="margin:0">Private, kind, judgement-free.</p>
+    </div>
+    <div class="msg them">Hi Ananya, it's Fuss. I'm here to listen, no judgement. What's on your mind?</div>
+    <div class="msg me">I have my practical exam on Monday and I keep thinking I'll freeze in front of the examiner.</div>
+    <div class="msg them">That fear makes sense. Practicals feel exposed, and you care about doing well. Is it the skill itself or being watched that worries you most?</div>
+    <sc-for list="{{extra}}" as="m" hint-placeholder-count="0"><div class="{{m.cls}}">{{m.t}}</div></sc-for>
+    <p class="eyebrow" style="margin-top:4px">Might help now</p>
+    <a class="sug" href="Breathing.dc.html">2-min breathing<span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+    <a class="sug" href="Wellbeing.dc.html" style="background:linear-gradient(90deg,#E4E0F5,#ECE9F8)">Reach a faculty member<span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+  </div>
+  <div class="composer" style="margin-top:10px">
+    <label for="msg" class="sr">Message</label>
+    <input id="msg" value="{{draft}}" onChange="{{type}}" placeholder="Share what's on your mind…" style="padding-left:14px">
+    <button class="send" onClick="{{send}}" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const extra = this.state?.extra ?? [], draft = this.state?.draft ?? '';
+return {
+extra, draft,
+type: (e) => this.setState({ draft: e.target.value }),
+send: () => { if (draft.trim()) this.setState({ extra: [...extra, { cls: 'msg me', t: draft }, { cls: 'msg them', t: 'Thank you for telling me. Let’s take it one piece at a time. Would a quick practice run of the steps help you feel more ready?' }], draft: '' }); }
+};
+}
+}
+</script>
+</body>
+</html>

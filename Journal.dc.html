@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Journal</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.etxt{width:100%;min-height:150px;border:0;outline:none;resize:none;background:transparent;padding:0;font-size:16px;line-height:1.55;color:var(--ink)}
+.etxt::placeholder{color:var(--ink3)}
+.etag{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:16px;background:#F4F2EC;font-size:13px;font-weight:600;color:var(--ink)}
+</style>
+</helmet>
+<div class="app sand">
+  <div class="top">
+    <a class="ib" href="Wellbeing.dc.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Journal<small>Private to you</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Saturday, 17 Oct<span>what's on your mind?</span></h1>
+    <div class="chips scroll" role="group" aria-label="How you feel">
+      <sc-for list="{{tags}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" onClick="{{t.pick}}" aria-pressed="{{t.on}}">{{t.n}}</button></sc-for>
+    </div>
+    <div class="card stack" style="gap:14px">
+      <div class="row" style="justify-content:space-between"><span class="etag">Today's entry</span><span class="mu" style="font-size:13px">{{tagTxt}}</span></div>
+      <label for="j" class="sr">Journal entry</label>
+      <textarea id="j" class="etxt" value="{{draft}}" onChange="{{type}}" placeholder="“In stillness, clarity emerges.” Write freely. Only you can read this."></textarea>
+      <div class="row" style="justify-content:flex-end"><button class="btn ink sm" onClick="{{save}}">Save entry</button></div>
+    </div>
+    <div class="sec"><h2>My journal</h2><span class="row" style="gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2.5"></rect><path d="M8 11V7.5a4 4 0 0 1 8 0V11"></path></svg>Private</span></div>
+    <sc-for list="{{entries}}" as="e" hint-placeholder-count="2">
+      <div class="card stack" style="gap:10px">
+        <div class="row" style="justify-content:space-between"><span class="tag y">{{e.tag}}</span><span class="mu">{{e.d}}</span></div>
+        <p class="body">{{e.t}}</p>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const tag = this.state?.tag ?? 'Grateful', draft = this.state?.draft ?? '';
+const entries = this.state?.entries ?? [
+{ tag: 'Proud', d: 'Thursday', t: 'First IV cannulation on a real patient today. My hands shook but it went in first try.' },
+{ tag: 'Tired', d: 'Tuesday', t: 'Night shift and an exam the same week. Need to plan sleep better.' }
+];
+return {
+draft, entries, tagTxt: 'Feeling ' + tag.toLowerCase(),
+tags: ['Grateful','Proud','Anxious','Tired'].map(n => ({ n, on: n === tag ? 'true' : 'false', cls: n === tag ? 'chip on' : 'chip', pick: () => this.setState({ tag: n }) })),
+type: (e) => this.setState({ draft: e.target.value }),
+save: () => { if (draft.trim()) this.setState({ entries: [{ tag, d: 'Just now', t: draft }, ...entries], draft: '' }); }
+};
+}
+}
+</script>
+</body>
+</html>

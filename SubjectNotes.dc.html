@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Subject notes</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.rd{display:flex;flex-direction:column;align-items:center;gap:8px}
+.rd .bar{width:120px;height:6px}
+.ib.on{background:var(--deep);color:#fff}
+.art h2{margin:0 0 6px;font-size:16px;font-weight:600;letter-spacing:-.01em}
+.art .body{color:var(--ink2)}
+.art .body b{color:var(--ink);font-weight:600}
+.dock{position:absolute;left:16px;right:16px;bottom:16px;height:74px;display:flex;align-items:center;padding:0 6px;border-radius:30px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.95);box-shadow:0 16px 36px rgba(18,48,46,.12),inset 0 1px 0 #fff;z-index:10}
+.dock a{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--ink2)}
+.dock a .ic{width:46px;height:32px;border-radius:16px}
+.dock a .ic svg{width:18px;height:18px}
+.dock a:active .ic{transform:scale(.94)}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="NotesBuddy.dc.html" aria-label="Back to Notes Buddy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <div class="ttl rd">
+      <span>60% read</span>
+      <div class="bar" role="img" aria-label="60 percent read"><i style="width:60%"></i></div>
+    </div>
+    <button class="{{saveCls}}" onClick="{{toggleSave}}" aria-pressed="{{savedA}}" aria-label="Save note"><svg viewBox="0 0 24 24" fill="{{saveFill}}" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10a.5.5 0 0 1 .5.5V20L12 16.5 6.5 20V4.5A.5.5 0 0 1 7 4z"></path></svg></button>
+  </div>
+  <div class="page nonav" style="padding-bottom:116px">
+    <div class="chips"><span class="tag">Anatomy &amp; Physiology</span><span class="tag y">6 min read</span></div>
+    <h1 class="hl">Heart<span>chambers and valves</span></h1>
+    <div class="card art stack" style="gap:20px">
+      <div>
+        <h2>Four chambers</h2>
+        <p class="body">The upper <b>atria</b> receive blood; the lower <b>ventricles</b> pump it out. The left ventricle is thickest, pushing blood to the whole body.</p>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <h2>The four valves</h2>
+        <p class="body">Valves keep blood flowing one way. Tricuspid and mitral sit between atria and ventricles; pulmonary and aortic guard the exits.</p>
+      </div>
+    </div>
+    <div class="note">
+      <span class="nb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8c.6 4.6 3.9 8 8.6 8.7-4.7.7-8 4.1-8.6 8.7-.6-4.6-3.9-8-8.6-8.7 4.7-.7 8-4.1 8.6-8.7z"></path></svg></span>
+      <span style="flex:1"><b>Remember it</b>"Try Pulling My Aorta": Tricuspid, Pulmonary, Mitral, Aortic, in order of flow.</span>
+    </div>
+    <div class="card art">
+      <h2>On the ward</h2>
+      <p class="body">A murmur often means a valve isn't opening or closing fully. Listen for it when assessing heart sounds.</p>
+    </div>
+  </div>
+  <nav class="dock" aria-label="Note actions">
+    <a href="ChooseMode.dc.html"><span class="ic c-mint"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4.5c.45 3.6 2.9 6.05 6.5 6.5-3.6.45-6.05 2.9-6.5 6.5-.45-3.6-2.9-6.05-6.5-6.5 3.6-.45 6.05-2.9 6.5-6.5z"></path></svg></span>Simpler</a>
+    <a href="Flashcards.dc.html"><span class="ic c-lilac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7.5" width="13" height="12" rx="2"></rect><path d="M7.5 4.5h11a2 2 0 0 1 2 2v9.5"></path></svg></span>Flashcards</a>
+    <a href="ExamSetup.dc.html"><span class="ic c-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16" rx="2.5"></rect><path d="M9 13l2 2 4-4"></path></svg></span>Quiz me</a>
+    <a href="DiagramResult.dc.html"><span class="ic c-blush"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><circle cx="17" cy="7" r="3.5"></circle><path d="M7 14l3.5 6.5h-7zM14 14h6.5v6.5H14z"></path></svg></span>Diagram</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const saved = this.state?.saved ?? false;
+return {
+  saveCls: saved ? 'ib on' : 'ib',
+  savedA: saved ? 'true' : 'false',
+  saveFill: saved ? 'currentColor' : 'none',
+  toggleSave: () => this.setState({ saved: !saved })
+};
+}
+}
+</script>
+</body>
+</html>

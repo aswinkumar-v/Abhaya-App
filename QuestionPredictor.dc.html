@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Question predictor</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.qt{margin:0;font-size:15px;font-weight:600;line-height:1.45;letter-spacing:-.01em}
+.mk{font-size:13px;font-weight:600;color:var(--ink2)}
+.src{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink3)}
+.src svg{width:15px;height:15px;flex:none}
+</style>
+</helmet>
+<div class="app sky">
+  <div class="top">
+    <a class="ib" href="NotesBuddy.dc.html" aria-label="Back to Notes Buddy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"></path></svg></a>
+    <span class="ttl">Question predictor<small>Sem 3 · Anatomy &amp; Physiology</small></span>
+    <a class="ib" href="QuestionPredictor.dc.html" aria-label="Predict again"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"></path></svg></a>
+  </div>
+  <div class="page nonav">
+    <h1 class="hl">Likely in your exam<span>from past papers and syllabus</span></h1>
+    <div class="seg" role="tablist" aria-label="Question type">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" onClick="{{t.pick}}" role="tab" aria-selected="{{t.on}}">{{t.n}}</button></sc-for>
+    </div>
+    <div class="stack" role="tabpanel">
+      <sc-for list="{{qs}}" as="q" hint-placeholder-count="4">
+        <div class="card stack" style="gap:12px">
+          <div class="row" style="justify-content:space-between"><span class="{{q.cls}}">{{q.l}}</span><span class="mk">{{q.m}}</span></div>
+          <p class="qt">{{q.t}}</p>
+          <span class="src"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H6.5V3.5zM14 3.5V8h4"></path></svg>{{q.s}}</span>
+        </div>
+      </sc-for>
+    </div>
+    <a class="btn ink" href="ExamQuestion.dc.html" style="margin-top:4px">Practise these<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const tab = this.state?.tab ?? 'Short';
+const H = ['High chance','tag'], M = ['Medium chance','tag y'];
+const data = {
+Short: [[H,'5 marks','Describe the conduction system of the heart.','In 4 of the last 6 papers'],[H,'5 marks','Draw and label the structure of a nephron.','In 3 of the last 6 papers'],[M,'5 marks','Explain the mechanism of breathing.','In 2 of the last 6 papers'],[M,'2 marks','Define cardiac output.','Common short definition']],
+Long: [[H,'15 marks','Explain the structure and functions of the heart with a neat diagram.','In 3 of the last 6 papers'],[M,'15 marks','Describe the anatomy and physiology of the kidney.','In 2 of the last 6 papers']],
+Case: [[H,'10 marks','A patient presents with chest pain and ST elevation. Outline priority nursing actions.','Matches a recurring case pattern']]
+};
+return {
+tabs: ['Short','Long','Case'].map(n => ({ n: n === 'Case' ? 'Case based' : n + ' answer', cls: n === tab ? 'on' : '', on: n === tab ? 'true' : 'false', pick: () => this.setState({ tab: n }) })),
+qs: data[tab].map(([lk, m, t, s]) => ({ l: lk[0], cls: lk[1], m, t, s }))
+};
+}
+}
+</script>
+</body>
+</html>

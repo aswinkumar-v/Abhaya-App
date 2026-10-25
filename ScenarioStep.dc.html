@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scenario decision</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="assets/abhaya.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}
+.vit{display:flex;padding:14px 4px}
+.vs{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+.vs + .vs{border-left:1px solid rgba(255,255,255,.16)}
+.vs b{font-size:18px;font-weight:500;letter-spacing:-.02em}
+.vs span{font-size:11px;color:rgba(255,255,255,.7)}
+.steps{display:flex;flex-direction:column;gap:10px}
+.sp2{position:relative;display:flex;align-items:center;gap:12px}
+.sp2 .dt{position:relative;z-index:1;width:28px;height:28px;border-radius:14px;flex:none;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #C9D6D3;color:#fff}
+.sp2 .dt svg{width:14px;height:14px}
+.sp2.done .dt{background:var(--teal);border-color:var(--teal)}
+.sp2.cur .dt{border-color:var(--teal);box-shadow:0 0 0 4px rgba(30,107,99,.12)}
+.sp2:not(:last-child)::before{content:'';position:absolute;left:13px;top:36px;height:calc(100% - 22px);border-left:2px dashed #BFD3CF}
+.sp2 .bx{flex:1;display:flex;align-items:center;gap:12px;min-height:60px;padding:10px 14px;border-radius:22px;background:#fff;box-shadow:var(--shadow);border:2px solid transparent}
+.sp2.cur .bx{border-color:#A9DCD0;box-shadow:0 0 0 4px rgba(169,220,208,.35)}
+.sp2 .bx .ic{width:36px;height:36px;border-radius:18px;background:var(--track);color:var(--ink2)}
+.sp2 .bx .ic svg{width:17px;height:17px}
+.sp2 .tx b{font-size:14px}
+.qc{position:relative;overflow:hidden}
+.qc::after{content:'';position:absolute;right:-50px;top:-60px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(185,224,215,.55),rgba(185,224,215,0) 70%)}
+.qt{position:relative;margin:12px 0 0;font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1.3}
+.fb{display:flex;gap:14px;align-items:flex-start}
+.fb .nb{width:44px;height:44px;border-radius:22px;background:#fff;flex:none;display:flex;align-items:center;justify-content:center}
+.fb .nb svg{width:19px;height:19px}
+</style>
+</helmet>
+<div class="app">
+  <div class="top">
+    <a class="ib" href="ScenarioDetails.dc.html" aria-label="Leave scenario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></a>
+    <span class="ttl">Acute MI · Case<small>Decision 2 of 4</small></span>
+    <span class="sp"></span>
+  </div>
+  <div class="page nonav">
+    <div class="tealx vit" role="group" aria-label="Current vitals">
+      <div class="vs"><b>112</b><span>HR</span></div><div class="vs"><b>160/95</b><span>BP</span></div><div class="vs"><b>94%</b><span>SpO2</span></div><div class="vs"><b>8/10</b><span>Pain</span></div>
+    </div>
+
+    <div class="sec" style="margin-top:4px"><h2>Your care steps</h2><span>{{doneTxt}}</span></div>
+    <ol class="steps" style="margin:0;padding:0;list-style:none" aria-label="Care steps">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+        <li class="{{s.cls}}" aria-current="{{s.cur}}">
+          <span class="dt"><sc-if value="{{s.done}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if></span>
+          <span class="bx">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg></span>
+            <span class="tx"><b>{{s.t}}</b><span>{{s.s}}</span></span>
+          </span>
+        </li>
+      </sc-for>
+    </ol>
+
+    <div class="note">
+      <span class="nb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7"></path></svg></span>
+      <span style="flex:1"><b>12-lead ECG recorded</b>Monitor is on. The doctor asks what you see.</span>
+    </div>
+
+    <div class="card qc">
+      <span class="tag s" style="position:relative">ECG interpretation</span>
+      <h1 class="qt">Which ECG finding would you expect?</h1>
+    </div>
+
+    <div class="stack" role="radiogroup" aria-label="Answer options">
+      <sc-for list="{{opts}}" as="o" hint-placeholder-count="4">
+        <button class="{{o.cls}}" onClick="{{o.pick}}" role="radio" aria-checked="{{o.on}}"><span class="lt">{{o.l}}</span><span>{{o.t}}</span></button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{checked}}" hint-placeholder-val="{{false}}">
+      <div class="card stack" style="{{fbStyle}}" role="status">
+        <div class="fb">
+          <span class="nb" style="{{fbIconStyle}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{fbIcon}}"></path></svg></span>
+          <div class="stack" style="gap:6px;flex:1">
+            <b class="h3" style="{{fbTitleStyle}}">{{fbTitle}}</b>
+            <p class="eyebrow" style="font-weight:600;color:var(--ink)">Key rationale</p>
+            <p class="body">ST elevation is the hallmark of STEMI: heart muscle is being injured now, so the patient needs urgent reperfusion.</p>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="margin-top:4px">
+      <sc-if value="{{notChecked}}" hint-placeholder-val="{{true}}"><button class="{{submitCls}}" onClick="{{check}}" aria-disabled="{{subDis}}">Submit decision</button></sc-if>
+      <sc-if value="{{checked}}" hint-placeholder-val="{{false}}"><a class="btn" href="ScenarioComplete.dc.html">Continue<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const sel = this.state?.sel ?? null, checked = this.state?.checked ?? false, right = 0;
+const ok = sel === right;
+const stepList = [
+['Assess chest pain','Onset, radiation, severity 8/10','M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z'],
+['Read the ECG','You are here','M3 12h4l2-5 3 10 2-5h7'],
+['Give first medication','As prescribed','M8 3.5h8M9 3.5v3l-3 3v10.5h12V9.5l-3-3v-3M9.5 14h5M12 11.5v5'],
+['Escalate & document','Senior team, notes','M6 4.5h9l3 3v12H6zM9 12.5l2 2 4-4']
+];
+const doneCount = checked ? 2 : 1;
+return {
+checked, notChecked: !checked,
+doneTxt: doneCount + ' of 4 done',
+steps: stepList.map(([t, s, icon], i) => {
+const d = i < doneCount;
+const cur = !checked && i === 1;
+return { t, s: i === 1 && checked ? 'ECG reviewed' : s, icon, done: d, cur: cur ? 'step' : 'false', cls: d ? 'sp2 done' : cur ? 'sp2 cur' : 'sp2' };
+}),
+subDis: sel === null ? 'true' : 'false',
+submitCls: sel === null ? 'btn off' : 'btn',
+check: () => { if (sel !== null) this.setState({ checked: true }); },
+fbStyle: ok ? 'background:var(--ok-bg);box-shadow:none' : 'background:var(--bad-bg);box-shadow:none',
+fbIconStyle: ok ? 'color:var(--ok)' : 'color:var(--bad)',
+fbIcon: ok ? 'M5 12.5l4.5 4.5L19 7.5' : 'M7 7l10 10M17 7L7 17',
+fbTitleStyle: ok ? 'color:var(--ok)' : 'color:var(--bad)',
+fbTitle: ok ? 'Right call' : 'Not quite. Expect ST elevation',
+opts: ['ST elevation','Prolonged QT interval','Wide QRS complex','Delta waves'].map((t, i) => {
+const isSel = i === sel, isRight = checked && i === right, isWrong = checked && isSel && !ok;
+return { t, l: 'ABCD'[i], on: isSel ? 'true' : 'false', cls: isRight ? 'opt ok' : isWrong ? 'opt bad' : isSel ? 'opt on' : 'opt', pick: () => { if (!checked) this.setState({ sel: i }); } };
+})
+};
+}
+}
+</script>
+</body>
+</html>
